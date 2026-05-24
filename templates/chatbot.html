@@ -1,0 +1,84 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <title>MediExpert+ Chatbot</title>
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <style>
+    * {
+      box-sizing: border-box;
+    }
+    body {
+      margin: 0;
+      min-height: 100vh;
+      font-family: Arial, sans-serif;
+      background: url("{{ url_for('static', filename='background.jpg') }}") no-repeat center center fixed;
+      background-size: cover;
+      color: #ffffff;
+      padding: 28px;
+    }
+    .container {
+      width: min(900px, 100%);
+      margin: auto;
+      background: rgba(0, 0, 0, 0.48);
+      padding: 26px;
+      border-radius: 15px;
+      box-shadow: 0 4px 15px rgba(0, 0, 0, 0.8);
+      text-align: center;
+    }
+    h2 {
+      color: #00cec9;
+      margin: 0 0 10px;
+    }
+    p {
+      margin: 0 0 18px;
+      color: #e9fbfb;
+    }
+    iframe {
+      width: 100%;
+      min-height: 700px;
+      border: none;
+      border-radius: 12px;
+      background: white;
+    }
+    .back-btn {
+      display: inline-block;
+      margin-top: 20px;
+      padding: 10px 25px;
+      background-color: #00cec9;
+      color: white;
+      text-decoration: none;
+      border-radius: 50px;
+      font-weight: bold;
+    }
+    .back-btn:hover {
+      background-color: #009f9b;
+    }
+    @media screen and (max-width: 600px) {
+      body {
+        padding: 14px;
+      }
+      .container {
+        padding: 16px;
+      }
+      iframe {
+        min-height: 560px;
+      }
+    }
+  </style>
+</head>
+<body>
+  <div class="container">
+    <h2>MediExpert+ AI Chatbot</h2>
+    <p>Ask health-related questions and get instant guidance.</p>
+
+    <iframe
+      src="https://www.chatbase.co/chatbot-iframe/C_Mr-XjTXHNx2fSe44QV9"
+      title="MediExpert+ AI Chatbot"
+      frameborder="0">
+    </iframe>
+
+    <a href="{{ url_for('dashboard') }}" class="back-btn">Back to Dashboard</a>
+  </div>
+</body>
+</html>

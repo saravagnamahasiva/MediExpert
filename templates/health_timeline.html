@@ -1,0 +1,176 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <title>My Health Timeline</title>
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <style>
+    body {
+      font-family: 'Segoe UI', sans-serif;
+      background: #f3f9fa;
+      margin: 0;
+      padding: 20px;
+      color: #17383d;
+    }
+    .header {
+      max-width: 900px;
+      margin: 0 auto 24px;
+      text-align: center;
+    }
+    h1 {
+      color: #006064;
+      margin-bottom: 8px;
+    }
+    .actions {
+      display: flex;
+      justify-content: center;
+      gap: 10px;
+      flex-wrap: wrap;
+      margin-top: 14px;
+    }
+    .actions a {
+      text-decoration: none;
+      background: #007b83;
+      color: white;
+      padding: 10px 14px;
+      border-radius: 8px;
+      font-weight: 600;
+    }
+    .timeline {
+      max-width: 900px;
+      margin: 0 auto;
+      position: relative;
+    }
+    .timeline::before {
+      content: '';
+      position: absolute;
+      left: 132px;
+      top: 0;
+      bottom: 0;
+      width: 4px;
+      background: #00838f;
+      border-radius: 4px;
+    }
+    .entry {
+      display: grid;
+      grid-template-columns: 110px 1fr;
+      gap: 42px;
+      margin-bottom: 18px;
+      position: relative;
+    }
+    .entry::before {
+      content: '';
+      position: absolute;
+      left: 124px;
+      top: 24px;
+      width: 18px;
+      height: 18px;
+      border-radius: 50%;
+      background: #006064;
+      border: 3px solid white;
+      box-shadow: 0 2px 8px rgba(0,0,0,0.18);
+      z-index: 1;
+    }
+    .timebox {
+      text-align: right;
+      padding-top: 12px;
+      color: #355a60;
+      font-size: 0.92rem;
+    }
+    .timebox strong {
+      display: block;
+      color: #004d54;
+      font-size: 1rem;
+    }
+    .card {
+      background: white;
+      border-radius: 10px;
+      padding: 16px 18px;
+      box-shadow: 0 3px 12px rgba(0,0,0,0.1);
+      border-left: 5px solid #00838f;
+    }
+    .card h3 {
+      margin: 0 0 6px;
+      color: #004d54;
+    }
+    .card p {
+      margin: 0;
+      color: #3d5559;
+      line-height: 1.5;
+    }
+    .badge {
+      display: inline-block;
+      margin-top: 10px;
+      padding: 5px 9px;
+      border-radius: 999px;
+      background: #e4f3f4;
+      color: #005f66;
+      font-size: 0.82rem;
+      font-weight: 600;
+    }
+    .empty {
+      max-width: 650px;
+      margin: 30px auto;
+      background: white;
+      padding: 22px;
+      border-radius: 10px;
+      text-align: center;
+      box-shadow: 0 3px 12px rgba(0,0,0,0.1);
+    }
+    @media (max-width: 700px) {
+      .timeline::before {
+        left: 14px;
+      }
+      .entry {
+        grid-template-columns: 1fr;
+        gap: 8px;
+        margin-left: 34px;
+      }
+      .entry::before {
+        left: -28px;
+      }
+      .timebox {
+        text-align: left;
+        padding-top: 0;
+      }
+    }
+  </style>
+</head>
+<body>
+  <div class="header">
+    <h1>My Health Timeline</h1>
+    <p>{{ user.name if user else 'Your' }}'s complete health activity history, arranged by date and time.</p>
+    <div class="actions">
+      <a href="{{ url_for('log_symptom') }}">Log New Symptoms</a>
+      <a href="{{ url_for('symptom_diagnosis') }}">Run Diagnosis</a>
+      <a href="{{ url_for('dashboard') }}">Back to Dashboard</a>
+    </div>
+  </div>
+
+  {% if events %}
+  <div class="timeline">
+    {% for event in events %}
+    <div class="entry">
+      <div class="timebox">
+        <strong>{{ event.date }}</strong>
+        <span>{{ event.day }}</span><br>
+        <span>{{ event.time }}</span>
+      </div>
+      <div class="card">
+        <h3>{{ event.title }}</h3>
+        <p>{{ event.details }}</p>
+        {% if event.meta %}
+        <span class="badge">{{ event.meta }}</span>
+        {% endif %}
+      </div>
+    </div>
+    {% endfor %}
+  </div>
+  {% else %}
+  <div class="empty">
+    <h3>No health activity yet</h3>
+    <p>Run a diagnosis, chat with MediBot, add a reminder, or log symptoms to build your timeline.</p>
+  </div>
+  {% endif %}
+</body>
+</html>

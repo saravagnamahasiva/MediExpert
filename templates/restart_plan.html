@@ -1,0 +1,58 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <title>Restart Plan</title>
+  <style>
+    body {
+      font-family: 'Segoe UI', sans-serif;
+      background: url("{{ url_for('static', filename='background2.jpg') }}") no-repeat center center fixed;
+      background-size: cover;
+      padding: 40px;
+    }
+    .container {
+      max-width: 500px;
+      margin: auto;
+      background: white;
+      padding: 30px;
+      border-radius: 12px;
+      box-shadow: 0 0 12px rgba(0,0,0,0.1);
+      text-align: center;
+    }
+    h2 {
+      color: #e67e22;
+    }
+    p {
+      color: #333;
+      margin: 20px 0;
+    }
+    button {
+      background: #e74c3c;
+      color: white;
+      padding: 12px 20px;
+      border: none;
+      border-radius: 8px;
+      cursor: pointer;
+    }
+    button:hover {
+      background: #c0392b;
+    }
+    a {
+      display: block;
+      margin-top: 25px;
+      color: #2980b9;
+      text-decoration: none;
+    }
+  </style>
+</head>
+<body>
+  <div class="container">
+    <h2>Restart Plan</h2>
+    <p>This will reset your diagnosis records, symptom logs, and reminders for your account only.</p>
+    <form method="post">
+      <button type="submit">Yes, Restart My Plan</button>
+    </form>
+    <a href="{{ url_for('dashboard') }}">Back to Dashboard</a>
+  </div>
+</body>
+</html>

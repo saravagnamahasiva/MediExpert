@@ -1,0 +1,288 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <title>Community Health Trends - MediExpert+</title>
+  <link rel="icon" href="{{ url_for('static', filename='logo.png') }}">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <style>
+    * { box-sizing: border-box; }
+    body {
+      margin: 0;
+      min-height: 100vh;
+      font-family: 'Segoe UI', Arial, sans-serif;
+      background: linear-gradient(rgba(4, 38, 58, 0.7), rgba(4, 38, 58, 0.7)), url("{{ url_for('static', filename='background2.jpg') }}") center/cover fixed;
+      color: #17323d;
+    }
+    header {
+      background: rgba(0, 119, 182, 0.96);
+      color: white;
+      padding: 18px 28px;
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      gap: 16px;
+      box-shadow: 0 4px 16px rgba(0,0,0,0.22);
+    }
+    .brand {
+      display: flex;
+      align-items: center;
+      gap: 12px;
+    }
+    .brand img {
+      height: 46px;
+      width: 46px;
+      border-radius: 8px;
+      background: white;
+      object-fit: contain;
+    }
+    .brand h1 { margin: 0; font-size: 24px; letter-spacing: 0; }
+    .brand p { margin: 3px 0 0; color: #d8f5ff; font-size: 14px; }
+    .back-btn {
+      display: inline-flex;
+      align-items: center;
+      justify-content: center;
+      min-height: 40px;
+      padding: 9px 14px;
+      border-radius: 8px;
+      background: #caf0f8;
+      color: #023e8a;
+      text-decoration: none;
+      font-weight: 800;
+      white-space: nowrap;
+    }
+    .container {
+      width: min(1140px, 100%);
+      margin: 0 auto;
+      padding: 28px;
+    }
+    .hero {
+      background: rgba(255,255,255,0.97);
+      border-radius: 8px;
+      padding: 24px;
+      box-shadow: 0 14px 35px rgba(0,0,0,0.22);
+      display: grid;
+      grid-template-columns: 1.3fr 0.7fr;
+      gap: 20px;
+      align-items: center;
+      margin-bottom: 18px;
+    }
+    .hero h2 {
+      margin: 0 0 8px;
+      color: #023e8a;
+      font-size: clamp(28px, 4vw, 42px);
+      letter-spacing: 0;
+    }
+    .hero p { margin: 0; color: #536d78; line-height: 1.6; }
+    .metric-grid {
+      display: grid;
+      grid-template-columns: repeat(3, 1fr);
+      gap: 12px;
+      margin-bottom: 18px;
+    }
+    .metric, .panel, .trend-card {
+      background: rgba(255,255,255,0.97);
+      border-radius: 8px;
+      box-shadow: 0 10px 28px rgba(0,0,0,0.18);
+      border: 1px solid rgba(209, 229, 236, 0.9);
+    }
+    .metric {
+      padding: 18px;
+    }
+    .metric strong {
+      display: block;
+      color: #0077b6;
+      font-size: 30px;
+      line-height: 1;
+    }
+    .metric span {
+      display: block;
+      color: #607882;
+      margin-top: 8px;
+      font-size: 14px;
+    }
+    .layout {
+      display: grid;
+      grid-template-columns: minmax(0, 1.6fr) minmax(300px, 0.8fr);
+      gap: 18px;
+    }
+    .panel {
+      padding: 22px;
+    }
+    .panel h3 {
+      margin: 0 0 16px;
+      color: #023e8a;
+      font-size: 22px;
+      letter-spacing: 0;
+    }
+    .bar-row {
+      display: grid;
+      grid-template-columns: minmax(120px, 190px) 1fr 56px;
+      align-items: center;
+      gap: 12px;
+      margin: 14px 0;
+    }
+    .bar-row strong {
+      color: #264a57;
+      overflow-wrap: anywhere;
+    }
+    .track {
+      height: 18px;
+      background: #e4f1f5;
+      border-radius: 999px;
+      overflow: hidden;
+    }
+    .bar {
+      height: 100%;
+      min-width: 6px;
+      border-radius: 999px;
+      background: linear-gradient(90deg, #0077b6, #00a896);
+    }
+    .count {
+      color: #023e8a;
+      font-weight: 800;
+      text-align: right;
+    }
+    .insight {
+      padding: 14px;
+      border-radius: 8px;
+      background: #f6fbfd;
+      border: 1px solid #d9eaf0;
+      margin-bottom: 12px;
+      line-height: 1.5;
+    }
+    .insight strong {
+      display: block;
+      color: #0b6580;
+      margin-bottom: 4px;
+    }
+    .cards {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(220px, 1fr));
+      gap: 14px;
+      margin-top: 18px;
+    }
+    .trend-card {
+      padding: 18px;
+      border-left: 5px solid #00a896;
+    }
+    .trend-card h4 {
+      margin: 0 0 8px;
+      color: #023e8a;
+      font-size: 18px;
+    }
+    .trend-card p {
+      margin: 6px 0 0;
+      color: #5b747e;
+      line-height: 1.45;
+    }
+    .empty {
+      background: #fff8df;
+      border-left: 5px solid #f0b429;
+      padding: 14px;
+      border-radius: 8px;
+      color: #6b560f;
+    }
+    .powered {
+      margin-top: 20px;
+      text-align: center;
+      color: #e7f8fd;
+      font-weight: 800;
+    }
+    @media(max-width: 860px) {
+      header, .hero { grid-template-columns: 1fr; flex-direction: column; align-items: flex-start; }
+      .layout, .metric-grid { grid-template-columns: 1fr; }
+      .container { padding: 16px; }
+      .bar-row { grid-template-columns: 1fr; }
+      .count { text-align: left; }
+    }
+  </style>
+</head>
+<body>
+  {% set total_cases = trend_totals|sum %}
+  {% set max_total = trend_totals|max if trend_totals else 0 %}
+  {% set top_label = trend_labels[0] if trend_labels else 'No trend yet' %}
+  <header>
+    <div class="brand">
+      <img src="{{ url_for('static', filename='logo.png') }}" alt="MediExpert+ Logo">
+      <div>
+        <h1>Community Health Trends</h1>
+        <p>Patterns from saved MediExpert+ health reports</p>
+      </div>
+    </div>
+    <a class="back-btn" href="{{ url_for('dashboard') }}">Back to Dashboard</a>
+  </header>
+
+  <main class="container">
+    <section class="hero">
+      <div>
+        <h2>Community Health Snapshot</h2>
+        <p>See which conditions are appearing most often in saved diagnosis reports. Use these trends as awareness signals and always follow qualified medical advice for health decisions.</p>
+      </div>
+      <div class="insight">
+        <strong>Top Current Trend</strong>
+        {{ top_label }}
+      </div>
+    </section>
+
+    <section class="metric-grid">
+      <div class="metric"><strong>{{ total_cases }}</strong><span>Total saved diagnosis records</span></div>
+      <div class="metric"><strong>{{ trends|length }}</strong><span>Tracked diagnosis groups</span></div>
+      <div class="metric"><strong>{{ max_total }}</strong><span>Highest report count</span></div>
+    </section>
+
+    <section class="layout">
+      <div class="panel">
+        <h3>Most Reported Diagnoses</h3>
+        {% if trends %}
+          {% for label in trend_labels %}
+            {% set total = trend_totals[loop.index0] %}
+            <div class="bar-row">
+              <strong>{{ label }}</strong>
+              <div class="track">
+                <div class="bar" style="width: {{ (total / max_total * 100) if max_total else 0 }}%;"></div>
+              </div>
+              <span class="count">{{ total }}</span>
+            </div>
+          {% endfor %}
+        {% else %}
+          <div class="empty">No trend records yet. Run a diagnosis to start building community trends.</div>
+        {% endif %}
+      </div>
+
+      <aside class="panel">
+        <h3>Health Awareness</h3>
+        <div class="insight">
+          <strong>Watch recurring symptoms</strong>
+          Fever, cough, stomach pain, fatigue, and breathing trouble should be tracked with date and time.
+        </div>
+        <div class="insight">
+          <strong>Act early</strong>
+          If symptoms are severe, worsening, or unusual, contact a doctor or emergency service.
+        </div>
+        <div class="insight">
+          <strong>Keep records ready</strong>
+          Use your QR health report when sharing your saved history with a caregiver.
+        </div>
+      </aside>
+    </section>
+
+    <section class="cards">
+      {% for trend in trends %}
+      <div class="trend-card">
+        <h4>{{ trend.diagnosis }}</h4>
+        <p><strong>{{ trend.total }}</strong> saved report{{ '' if trend.total == 1 else 's' }}</p>
+        <p>Visible in community trend tracking from MediExpert+ diagnosis activity.</p>
+      </div>
+      {% else %}
+      <div class="trend-card">
+        <h4>No data yet</h4>
+        <p>Run diagnoses from user accounts to build trend data.</p>
+      </div>
+      {% endfor %}
+    </section>
+
+    <div class="powered">Powered by MediExpert+</div>
+  </main>
+</body>
+</html>

@@ -1,0 +1,69 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <title>View History</title>
+  <style>
+    body {
+      font-family: 'Segoe UI', sans-serif;
+      background: url("{{ url_for('static', filename='background2.jpg') }}") no-repeat center center fixed;
+      background-size: cover;
+      padding: 40px;
+    }
+    .container {
+      max-width: 850px;
+      margin: auto;
+      background: white;
+      padding: 30px;
+      border-radius: 12px;
+      box-shadow: 0 0 10px rgba(0,0,0,0.08);
+    }
+    h2, h3 {
+      color: #2c3e50;
+    }
+    ul {
+      margin-top: 12px;
+      list-style: none;
+      padding: 0;
+    }
+    li {
+      padding: 12px;
+      background: #ecf0f1;
+      margin-bottom: 10px;
+      border-radius: 8px;
+    }
+    a {
+      display: block;
+      margin-top: 20px;
+      text-align: center;
+      text-decoration: none;
+      color: #2980b9;
+    }
+  </style>
+</head>
+<body>
+  <div class="container">
+    <h2>View History</h2>
+
+    <h3>Diagnosis History</h3>
+    <ul>
+      {% for record in records %}
+      <li>{{ record.date }} - {{ record.symptoms }} -> {{ record.diagnosis }}</li>
+      {% else %}
+      <li>No diagnosis history yet.</li>
+      {% endfor %}
+    </ul>
+
+    <h3>Account Activity</h3>
+    <ul>
+      {% for activity in activities %}
+      <li>{{ activity.created_at }} - {{ activity.activity_type.replace('_', ' ').title() }}{% if activity.details %}: {{ activity.details }}{% endif %}</li>
+      {% else %}
+      <li>No activity recorded yet.</li>
+      {% endfor %}
+    </ul>
+
+    <a href="{{ url_for('dashboard') }}">Back to Dashboard</a>
+  </div>
+</body>
+</html>

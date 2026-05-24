@@ -1,0 +1,144 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <title>Diet & Health Tips - MediExpert+</title>
+  <link rel="icon" type="image/png" href="{{ url_for('static', filename='logo.png') }}">
+  <style>
+    body {
+      font-family: 'Segoe UI', sans-serif;
+      background: #f2f9ff;
+      margin: 0;
+      padding: 20px;
+      color: #333;
+    }
+
+    .container {
+      max-width: 800px;
+      margin: auto;
+      background: #ffffff;
+      padding: 30px;
+      border-radius: 15px;
+      box-shadow: 0 4px 12px rgba(0, 0, 0, 0.1);
+    }
+
+    h1 {
+      text-align: center;
+      color: #007acc;
+    }
+
+    .tip-card {
+      background: #e7f3ff;
+      margin: 20px 0;
+      padding: 20px;
+      border-left: 6px solid #007acc;
+      border-radius: 10px;
+    }
+
+    .tip-title {
+      font-weight: bold;
+      font-size: 18px;
+      margin-bottom: 10px;
+    }
+
+    .refresh-btn {
+      display: block;
+      width: 100%;
+      background-color: #007acc;
+      color: white;
+      padding: 12px;
+      border: none;
+      border-radius: 8px;
+      font-size: 16px;
+      margin-top: 20px;
+      cursor: pointer;
+      transition: 0.3s;
+    }
+
+    .refresh-btn:hover {
+      background-color: #005e99;
+    }
+
+    .back-btn {
+      margin-top: 20px;
+      text-align: center;
+    }
+
+    .back-btn a {
+      text-decoration: none;
+      color: #007acc;
+      font-weight: bold;
+    }
+  </style>
+</head>
+<body>
+
+  <div class="container">
+    <h1>Daily Diet & Health Tips</h1>
+
+    <div class="tip-card">
+      <div class="tip-title">Health Tip</div>
+      <div id="health-tip">“Take a brisk 30-minute walk each day to boost heart health.”</div>
+    </div>
+
+    <div class="tip-card">
+      <div class="tip-title">Diet Tip</div>
+      <div id="diet-tip">“Include a bowl of fruits like papaya or apple in your breakfast.”</div>
+    </div>
+
+    <div class="tip-card">
+      <div class="tip-title">Hydration & Exercise</div>
+      <div id="hydration-tip">“Drink at least 2 liters of water and do 15 mins of stretching.”</div>
+    </div>
+
+    <div class="tip-card">
+      <div class="tip-title">Motivation</div>
+      <div id="motivation-quote">“Your health is your wealth. Take care of it daily!”</div>
+    </div>
+
+    <button class="refresh-btn" onclick="refreshTips()">Refresh Tips</button>
+
+    <div class="back-btn">
+      <a href="{{ url_for('dashboard') }}">← Back to Dashboard</a>
+    </div>
+  </div>
+
+  <script>
+    const healthTips = [
+      "Take a brisk 30-minute walk each day to boost heart health.",
+      "Sleep for at least 7-8 hours every night.",
+      "Practice 5 minutes of mindfulness to reduce stress.",
+    ];
+
+    const dietTips = [
+      "Include a bowl of fruits like papaya or apple in your breakfast.",
+      "Avoid processed sugars and opt for natural sweeteners.",
+      "Add leafy greens to every lunch/dinner meal.",
+    ];
+
+    const hydrationTips = [
+      "Drink at least 2 liters of water and do 15 mins of stretching.",
+      "Start your day with warm lemon water.",
+      "Avoid sugary drinks, stick to water and natural juices.",
+    ];
+
+    const motivationQuotes = [
+      "Your health is your wealth. Take care of it daily!",
+      "Small steps every day lead to big changes.",
+      "A healthy outside starts from the inside.",
+    ];
+
+    function refreshTips() {
+      document.getElementById("health-tip").innerText = randomItem(healthTips);
+      document.getElementById("diet-tip").innerText = randomItem(dietTips);
+      document.getElementById("hydration-tip").innerText = randomItem(hydrationTips);
+      document.getElementById("motivation-quote").innerText = randomItem(motivationQuotes);
+    }
+
+    function randomItem(array) {
+      return array[Math.floor(Math.random() * array.length)];
+    }
+  </script>
+
+</body>
+</html>

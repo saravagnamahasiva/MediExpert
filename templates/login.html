@@ -1,0 +1,143 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <title>Login - MediExpert+</title>
+  <link rel="icon" type="image/png" href="{{ url_for('static', filename='logo.png') }}">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <style>
+    * {
+      box-sizing: border-box;
+      margin: 0;
+      padding: 0;
+    }
+    body {
+      font-family: 'Segoe UI', sans-serif;
+      min-height: 100vh;
+      background: url("{{ url_for('static', filename='background.jpg') }}") no-repeat center center fixed;
+      background-size: cover;
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      position: relative;
+      padding: 18px;
+    }
+    .overlay {
+      position: absolute;
+      inset: 0;
+      background-color: rgba(0, 0, 0, 0.5);
+      z-index: 1;
+    }
+    .login-container {
+      z-index: 2;
+      background: rgba(145, 224, 239, 0.95);
+      padding: 35px 25px;
+      border-radius: 12px;
+      width: 100%;
+      max-width: 350px;
+      box-shadow: 0 8px 20px rgba(0, 0, 0, 0.3);
+      text-align: center;
+      animation: slideIn 0.7s ease;
+      transition: transform 0.3s ease, box-shadow 0.3s ease;
+    }
+    .login-container:hover {
+      transform: scale(1.02);
+      box-shadow: 0 10px 25px rgba(0, 119, 182, 0.5);
+    }
+    h2 {
+      color: #023e8a;
+      margin-bottom: 20px;
+    }
+    input {
+      width: 100%;
+      margin: 10px 0;
+      padding: 12px;
+      font-size: 16px;
+      border-radius: 6px;
+      border: 1px solid #ccc;
+      transition: border-color 0.2s ease;
+    }
+    input:focus {
+      border-color: #0096c7;
+      outline: none;
+    }
+    button {
+      width: 100%;
+      padding: 12px;
+      background-color: #0077b6;
+      color: white;
+      font-size: 16px;
+      border: none;
+      border-radius: 6px;
+      cursor: pointer;
+      transition: background-color 0.3s ease, transform 0.2s ease;
+      margin-top: 6px;
+    }
+    button:hover {
+      background-color: #023e8a;
+    }
+    button:active {
+      transform: scale(0.97);
+    }
+    .signup-link {
+      margin-top: 15px;
+      font-size: 14px;
+    }
+    .signup-link a {
+      color: #03045e;
+      text-decoration: none;
+      font-weight: 600;
+    }
+    .alert {
+      margin: 10px 0 14px;
+      padding: 10px;
+      border-radius: 6px;
+      background: #fff8db;
+      color: #5f4200;
+      font-size: 14px;
+    }
+    .alert.success {
+      background: #e8f8ee;
+      color: #145c2f;
+    }
+    .alert.danger {
+      background: #fde8e8;
+      color: #842029;
+    }
+    @keyframes slideIn {
+      from { transform: translateY(30px); opacity: 0; }
+      to { transform: translateY(0); opacity: 1; }
+    }
+    @media (max-width: 480px) {
+      .login-container {
+        padding: 25px 20px;
+        border-radius: 10px;
+      }
+      h2 {
+        font-size: 1.3rem;
+      }
+    }
+  </style>
+</head>
+<body>
+  <div class="overlay"></div>
+  <div class="login-container">
+    <h2>Login to MediExpert+</h2>
+    {% with messages = get_flashed_messages(with_categories=true) %}
+      {% if messages %}
+        {% for category, message in messages %}
+          <div class="alert {{ category }}">{{ message }}</div>
+        {% endfor %}
+      {% endif %}
+    {% endwith %}
+    <form action="{{ url_for('login') }}" method="POST">
+      <input type="email" name="email" placeholder="Email" required />
+      <input type="password" name="password" placeholder="Password" required />
+      <button type="submit">Login</button>
+    </form>
+    <div class="signup-link">
+      Don't have an account? <a href="{{ url_for('signup') }}">Sign up</a>
+    </div>
+  </div>
+</body>
+</html>

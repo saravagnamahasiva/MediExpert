@@ -1,0 +1,224 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <title>Diet & Health Tips - MediExpert+</title>
+  <link rel="icon" type="image/png" href="{{ url_for('static', filename='logo.png') }}">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+  <style>
+    body {
+      font-family: 'Segoe UI', sans-serif;
+      background: url("/static/background.jpg") no-repeat center center fixed;
+      background-size: cover;
+      margin: 0;
+      padding: 20px;
+      color: #333;
+    }
+
+    .container {
+      max-width: 800px;
+      margin: auto;
+      background: #ffffff;
+      padding: 30px;
+      border-radius: 15px;
+      box-shadow: 0 4px 12px rgba(0, 0, 0, 0.1);
+    }
+
+    h1 {
+      text-align: center;
+      color: #007acc;
+    }
+
+    .tip-card {
+      background: #e7f3ff;
+      margin: 20px 0;
+      padding: 20px;
+      border-left: 6px solid #007acc;
+      border-radius: 10px;
+    }
+
+    .tip-title {
+      font-weight: bold;
+      font-size: 18px;
+      margin-bottom: 10px;
+    }
+
+    .refresh-btn, .lang-btn {
+      display: inline-block;
+      width: 48%;
+      background-color: #007acc;
+      color: white;
+      padding: 12px;
+      border: none;
+      border-radius: 8px;
+      font-size: 16px;
+      margin-top: 20px;
+      cursor: pointer;
+      transition: 0.3s;
+    }
+
+    .refresh-btn:hover, .lang-btn:hover {
+      background-color: #005e99;
+    }
+
+    .back-btn {
+      margin-top: 20px;
+      text-align: center;
+    }
+
+    .back-btn a {
+      text-decoration: none;
+      color: #007acc;
+      font-weight: bold;
+    }
+
+    @media screen and (max-width: 600px) {
+      h1 {
+        font-size: 1.2rem;
+      }
+
+      .container {
+        padding: 15px;
+      }
+
+      .refresh-btn, .lang-btn {
+        width: 100%;
+        margin-top: 10px;
+      }
+    }
+  </style>
+</head>
+<body>
+
+  <div class="container">
+    <h1 id="page-title">Daily Diet & Health Tips</h1>
+
+    <div class="tip-card">
+      <div class="tip-title" id="title-health">Health Tip</div>
+      <div id="health-tip">Take a brisk 30-minute walk each day to boost heart health.</div>
+    </div>
+
+    <div class="tip-card">
+      <div class="tip-title" id="title-diet">Diet Tip</div>
+      <div id="diet-tip">Include a bowl of fruits like papaya or apple in your breakfast.</div>
+    </div>
+
+    <div class="tip-card">
+      <div class="tip-title" id="title-hydration">Hydration & Exercise</div>
+      <div id="hydration-tip">Drink at least 2 liters of water and do 15 mins of stretching.</div>
+    </div>
+
+    <div class="tip-card">
+      <div class="tip-title" id="title-motivation">Motivation</div>
+      <div id="motivation-quote">Your health is your wealth. Take care of it daily!</div>
+    </div>
+
+   <button class="refresh-btn" id="refresh-btn" onclick="refreshTips()">Refresh Tips</button>
+
+    <button class="lang-btn" onclick="switchLang()" id="lang-toggle">తెలుగు</button>
+
+    <div class="back-btn">
+      <a href="{{ url_for('dashboard') }}" id="back-text">← Back to Dashboard</a>
+    </div>
+  </div>
+
+  <script>
+    let lang = 'en';
+
+    const translations = {
+      en: {
+        "page-title": "Daily Diet & Health Tips",
+        "title-health": "Health Tip",
+        "title-diet": "Diet Tip",
+        "title-hydration": "Hydration & Exercise",
+        "title-motivation": "Motivation",
+        "lang-toggle": "తెలుగు",
+        "refresh-btn": "Refresh Tips",
+        "back-text": "← Back to Dashboard",
+        healthTips: [
+          "Take a brisk 30-minute walk each day to boost heart health.",
+          "Proper sleep, hydration, and food intake makes a happy mind.",
+          "Sleep for at least 7-8 hours every night.",
+          "Practice 15 minutes of mindfulness to reduce stress."
+        ],
+        dietTips: [
+          "Include a bowl of fruits like papaya or apple in your breakfast.",
+          "Avoid processed sugars and opt for natural sweeteners.",
+          "Add leafy greens to every lunch/dinner meal."
+        ],
+        hydrationTips: [
+          "Drink at least 2 liters of water and do 15 mins of stretching.",
+          "Start your day with warm lemon water.",
+          "Avoid sugary drinks, stick to water and natural juices."
+        ],
+        motivationQuotes: [
+          "Your health is your wealth. Take care of it daily!",
+          "Small steps every day lead to big changes.",
+          "A healthy outside starts from the inside."
+        ]
+      },
+      te: {
+        "page-title": "ప్రతిరోజు ఆహార & ఆరోగ్య సూచనలు",
+        "title-health": "ఆరోగ్య సలహా",
+        "title-diet": "ఆహార సూచన",
+        "title-hydration": "నీటి తీసుకువేత & వ్యాయామం",
+        "title-motivation": "ప్రేరణ",
+        "lang-toggle": "English",
+        "refresh-btn": "సలహాలను రిఫ్రెష్ చేయండి",
+        "back-text": "← డాష్‌బోర్డుకు తిరిగి వెళ్ళు",
+        healthTips: [
+          "ప్రతి రోజు 30 నిమిషాలు వేగంగా నడవండి – గుండె ఆరోగ్యానికి మంచిది.",
+          "నిద్ర, నీరు, సరైన ఆహారం – ఇవే ఆరోగ్యానికి మూలాధారాలు.",
+          "రోజుకు కనీసం 7–8 గంటలు నిద్రపోండి.",
+          "ఒత్తిడిని తగ్గించడానికి ధ్యానం చేయండి."
+        ],
+        dietTips: [
+          "ప్రతి ఉదయం పప్పు లేదా యాపిల్ వంటి పండ్లు తీసుకోండి.",
+          "షుగర్ బదులు సహజ మిఠాయిలు వాడండి.",
+          "ప్రతి భోజనంలో ఆకుకూరలు చేర్చండి."
+        ],
+        hydrationTips: [
+          "రోజుకు కనీసం 2 లీటర్లు నీరు తాగండి మరియు స్ట్రెచింగ్ చేయండి.",
+          "ఉదయాన్నే వేడిగా నిమ్మకాయ నీరు తాగండి.",
+          "శీతల పానీయాల బదులు సహజ రసాలు తాగండి."
+        ],
+        motivationQuotes: [
+          "మీ ఆరోగ్యం మీ సంపద. దాన్ని ప్రతిరోజూ కాపాడండి!",
+          "ప్రతి రోజు చిన్న అడుగులు పెద్ద మార్పులకు దారి తీస్తాయి.",
+          "బయటి ఆరోగ్యం లోపలి శ్రేయస్సుతో మొదలవుతుంది."
+        ]
+      }
+    };
+
+    function refreshTips() {
+      const t = translations[lang];
+      document.getElementById("health-tip").innerText = randomItem(t.healthTips);
+      document.getElementById("diet-tip").innerText = randomItem(t.dietTips);
+      document.getElementById("hydration-tip").innerText = randomItem(t.hydrationTips);
+      document.getElementById("motivation-quote").innerText = randomItem(t.motivationQuotes);
+    }
+
+    function switchLang() {
+      lang = lang === 'en' ? 'te' : 'en';
+      const t = translations[lang];
+
+      document.getElementById("page-title").innerText = t["page-title"];
+      document.getElementById("title-health").innerText = t["title-health"];
+      document.getElementById("title-diet").innerText = t["title-diet"];
+      document.getElementById("title-hydration").innerText = t["title-hydration"];
+      document.getElementById("title-motivation").innerText = t["title-motivation"];
+      document.getElementById("lang-toggle").innerText = t["lang-toggle"];
+      document.getElementById("back-text").innerText = t["back-text"];
+      document.getElementById("refresh-btn").innerText = t["refresh-btn"];
+
+
+      refreshTips(); // load translations for tips too
+    }
+
+    function randomItem(arr) {
+      return arr[Math.floor(Math.random() * arr.length)];
+    }
+  </script>
+
+</body>
+</html>

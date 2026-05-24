@@ -1,0 +1,268 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <title>Smart Health Reminders - MediExpert+</title>
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <link rel="icon" href="{{ url_for('static', filename='logo.png') }}">
+  <style>
+    body {
+      font-family: 'Segoe UI', sans-serif;
+      background: url("{{ url_for('static', filename='background.jpg') }}") no-repeat center center fixed;
+      background-size: cover;
+      margin: 0;
+      padding: 20px;
+    }
+    .container {
+      max-width: 850px;
+      margin: auto;
+      background: #ffffff;
+      padding: 30px;
+      border-radius: 15px;
+      box-shadow: 0 0 15px rgba(0,0,0,0.1);
+    }
+    h1 {
+      text-align: center;
+      color: #007acc;
+    }
+    .reminder-form input, .reminder-form select, .reminder-form button {
+      padding: 10px;
+      margin: 10px 5px 10px 0;
+      font-size: 16px;
+    }
+    .reminder-form input, select {
+      width: auto;
+      border: 1px solid #ccc;
+      border-radius: 6px;
+    }
+    .reminder-form button {
+      background-color: #007acc;
+      color: white;
+      border: none;
+      border-radius: 6px;
+      cursor: pointer;
+    }
+    .reminder-form button:hover {
+      background-color: #005f99;
+    }
+    .day-selector label {
+      margin-right: 10px;
+      font-size: 14px;
+    }
+    ul {
+      list-style: none;
+      padding: 0;
+    }
+    li {
+      background: #e6f4ff;
+      margin: 10px 0;
+      padding: 15px;
+      border-radius: 8px;
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+    }
+    .status-btn {
+      margin-left: 10px;
+      padding: 6px 10px;
+      border: none;
+      border-radius: 5px;
+      font-size: 14px;
+      cursor: pointer;
+    }
+    .edit {
+      background-color: #ffc107;
+    }
+    .delete {
+      background-color: #dc3545;
+      color: white;
+    }
+    .back-btn {
+      text-align: center;
+      margin-top: 30px;
+    }
+    .back-btn a {
+      color: #007acc;
+      text-decoration: none;
+      font-weight: bold;
+    }
+    .lang-toggle {
+      text-align: right;
+      margin-bottom: 10px;
+    }
+    .lang-toggle button {
+      padding: 5px 10px;
+      font-size: 14px;
+      cursor: pointer;
+    }
+    @media screen and (max-width: 600px) {
+      h1 {
+        font-size: 1.2rem;
+      }
+      .container {
+        padding: 15px;
+      }
+    }
+  </style>
+</head>
+<body>
+<div class="container">
+  <div class="lang-toggle">
+    <button onclick="switchLang()" id="lang-btn">తెలుగు</button>
+  </div>
+
+  <h1 id="page-title">Smart Health Reminder System</h1>
+
+  <div class="reminder-form">
+    <input type="text" id="reminderText" placeholder="E.g. Take BP medicine">
+    <input type="time" id="reminderTime">
+
+    <div class="day-selector">
+      <label><input type="checkbox" value="Sun"> <span id="day-sun">Sun</span></label>
+      <label><input type="checkbox" value="Mon"> <span id="day-mon">Mon</span></label>
+      <label><input type="checkbox" value="Tue"> <span id="day-tue">Tue</span></label>
+      <label><input type="checkbox" value="Wed"> <span id="day-wed">Wed</span></label>
+      <label><input type="checkbox" value="Thu"> <span id="day-thu">Thu</span></label>
+      <label><input type="checkbox" value="Fri"> <span id="day-fri">Fri</span></label>
+      <label><input type="checkbox" value="Sat"> <span id="day-sat">Sat</span></label>
+    </div>
+
+    <button onclick="addReminder()" id="add-btn">Add Reminder</button>
+  </div>
+
+  <ul id="reminderList"></ul>
+
+  <div class="back-btn">
+    <a href="{{ url_for('dashboard') }}" id="back-link">Back to Dashboard</a>
+  </div>
+</div>
+
+<audio id="buzz" src="{{ url_for('static', filename='beep_short.ogg') }}" preload="auto"></audio>
+
+<script>
+let lang = 'en';
+let editIndex = -1;
+let remindersCache = [];
+
+const translations = {
+  en: {
+    title: "Smart Health Reminder System",
+    addBtn: "Add Reminder",
+    back: "Back to Dashboard",
+    days: ["Sun", "Mon", "Tue", "Wed", "Thu", "Fri", "Sat"],
+    langBtn: "తెలుగు",
+    alert: "Reminder"
+  },
+  te: {
+    title: "స్మార్ట్ హెల్త్ రిమైండర్ సిస్టమ్",
+    addBtn: "గుర్తింపు చేర్చండి",
+    back: "డ్యాష్‌బోర్డ్‌కి తిరిగి వెళ్లండి",
+    days: ["ఆది", "సోమ", "మంగళ", "బుధ", "గురు", "శుక్ర", "శని"],
+    langBtn: "English",
+    alert: "గుర్తింపు"
+  }
+};
+
+function switchLang() {
+  lang = lang === 'en' ? 'te' : 'en';
+  const t = translations[lang];
+  document.getElementById('page-title').innerText = t.title;
+  document.getElementById('add-btn').innerText = t.addBtn;
+  document.getElementById('back-link').innerText = t.back;
+  document.getElementById('lang-btn').innerText = t.langBtn;
+  document.getElementById('day-sun').innerText = t.days[0];
+  document.getElementById('day-mon').innerText = t.days[1];
+  document.getElementById('day-tue').innerText = t.days[2];
+  document.getElementById('day-wed').innerText = t.days[3];
+  document.getElementById('day-thu').innerText = t.days[4];
+  document.getElementById('day-fri').innerText = t.days[5];
+  document.getElementById('day-sat').innerText = t.days[6];
+}
+
+async function addReminder() {
+  const text = document.getElementById("reminderText").value.trim();
+  const time = document.getElementById("reminderTime").value;
+  const selectedDays = Array.from(document.querySelectorAll('.day-selector input:checked')).map(cb => cb.value);
+
+  if (!text || !time || selectedDays.length === 0) {
+    alert(lang === 'te' ? "దయచేసి అన్ని వివరాలు నమోదు చేయండి." : "Please fill all fields.");
+    return;
+  }
+
+  if (editIndex > -1) {
+    const id = remindersCache[editIndex].id;
+    await fetch(`/update_reminder/${id}`, {
+      method: "PUT",
+      headers: { "Content-Type": "application/json" },
+      body: JSON.stringify({ text, time, days: selectedDays })
+    });
+    editIndex = -1;
+  } else {
+    await fetch("/add_reminder", {
+      method: "POST",
+      headers: { "Content-Type": "application/json" },
+      body: JSON.stringify({ text, time, days: selectedDays })
+    });
+  }
+
+  await renderReminders();
+  document.getElementById("reminderText").value = "";
+  document.getElementById("reminderTime").value = "";
+  document.querySelectorAll('.day-selector input').forEach(cb => cb.checked = false);
+}
+
+async function renderReminders() {
+  const list = document.getElementById("reminderList");
+  list.innerHTML = "";
+  const response = await fetch("/get_reminders");
+  remindersCache = await response.json();
+  remindersCache.forEach((rem, index) => {
+    const li = document.createElement("li");
+    li.innerHTML = `
+      <span>${rem.text} - ${rem.time} (${rem.days.join(', ')})</span>
+      <span>
+        <button class="status-btn edit" onclick="editReminder(${index})">✏️</button>
+        <button class="status-btn delete" onclick="deleteReminder(${index})">❌</button>
+      </span>`;
+    list.appendChild(li);
+  });
+}
+
+function editReminder(index) {
+  const rem = remindersCache[index];
+  document.getElementById("reminderText").value = rem.text;
+  document.getElementById("reminderTime").value = rem.time;
+  document.querySelectorAll('.day-selector input').forEach(cb => cb.checked = rem.days.includes(cb.value));
+  editIndex = index;
+}
+
+async function deleteReminder(index) {
+  await fetch(`/delete_reminder/${remindersCache[index].id}`, { method: "DELETE" });
+  await renderReminders();
+}
+
+function speak(text) {
+  const msg = new SpeechSynthesisUtterance(text);
+  speechSynthesis.speak(msg);
+}
+
+function checkReminders() {
+  const now = new Date();
+  const currentTime = now.toTimeString().slice(0, 5);
+  const currentDay = ["Sun", "Mon", "Tue", "Wed", "Thu", "Fri", "Sat"][now.getDay()];
+
+  remindersCache.forEach(rem => {
+    if (rem.time === currentTime && rem.days.includes(currentDay)) {
+      const message = `${translations[lang].alert}: ${rem.text}`;
+      document.getElementById("buzz").play();
+      speak(message);
+      setTimeout(() => alert(message), 1500);
+    }
+  });
+}
+
+renderReminders();
+setInterval(checkReminders, 60000);
+</script>
+</body>
+</html>

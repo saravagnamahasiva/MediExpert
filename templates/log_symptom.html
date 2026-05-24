@@ -1,0 +1,33 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <meta charset="UTF-8">
+  <title>Log Today's Symptoms</title>
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <style>
+    body { font-family: 'Segoe UI'; background: #f2f9fa; padding: 20px; }
+    .container { max-width: 500px; margin: auto; background: white; padding: 20px; border-radius: 10px; box-shadow: 0 0 10px #ccc; }
+    h2 { text-align: center; color: #006064; }
+    textarea, button {
+      width: 100%; font-size: 1rem; margin-top: 10px; padding: 10px; border-radius: 6px; border: 1px solid #ccc;
+    }
+    button {
+      background: #00838f; color: white; border: none; cursor: pointer;
+    }
+    button:hover { background: #005f63; }
+    .back { text-align: center; margin-top: 10px; }
+    .back a { color: #006064; text-decoration: none; font-weight: bold; }
+  </style>
+</head>
+<body>
+  <div class="container">
+    <h2>Log Today's Symptoms</h2>
+    <form method="POST">
+      <label for="symptoms">Enter your symptoms:</label><br>
+      <textarea name="symptoms" rows="4" placeholder="e.g. Fever, Cough, Body pain" required></textarea>
+      <button type="submit">Save</button>
+    </form>
+    <div class="back"><a href="{{ url_for('timeline') }}">← View Timeline</a></div>
+  </div>
+</body>
+</html>

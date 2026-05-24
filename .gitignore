@@ -1,0 +1,11 @@
+venv/
+__pycache__/
+*.pyc
+instance/
+.env
+.vscode/
+.idea/
+*.log
+*.sqlite
+*.db
+MediExpertPlus_Complete_App.zip

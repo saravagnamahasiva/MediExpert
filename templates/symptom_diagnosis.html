@@ -1,0 +1,502 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <title>Quick Symptom Diagnosis</title>
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <style>
+    * {
+      box-sizing: border-box;
+    }
+    body {
+      margin: 0;
+      font-family: 'Segoe UI', sans-serif;
+      background: #eef7f8 url('/static/background.jpg') no-repeat center center fixed;
+      background-size: cover;
+      color: #17383d;
+    }
+    .shell {
+      max-width: 1180px;
+      margin: 28px auto;
+      padding: 0 18px;
+    }
+    .topbar {
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      gap: 16px;
+      margin-bottom: 18px;
+    }
+    .title h1 {
+      margin: 0;
+      color: #005f66;
+      font-size: 2rem;
+    }
+    .title p {
+      margin: 6px 0 0;
+      color: #355a60;
+    }
+    .top-actions {
+      display: flex;
+      gap: 10px;
+      flex-wrap: wrap;
+    }
+    .btn, button {
+      border: 0;
+      border-radius: 8px;
+      padding: 11px 14px;
+      font-size: 0.95rem;
+      cursor: pointer;
+      text-decoration: none;
+      display: inline-flex;
+      align-items: center;
+      justify-content: center;
+      gap: 8px;
+      min-height: 42px;
+    }
+    .btn-primary {
+      background: #007b83;
+      color: white;
+    }
+    .btn-secondary {
+      background: #e4f3f4;
+      color: #005f66;
+    }
+    .btn-primary:hover {
+      background: #005f66;
+    }
+    .layout {
+      display: grid;
+      grid-template-columns: minmax(320px, 420px) 1fr;
+      gap: 18px;
+      align-items: start;
+    }
+    .panel {
+      background: rgba(255, 255, 255, 0.96);
+      border-radius: 12px;
+      box-shadow: 0 8px 24px rgba(0,0,0,0.18);
+      padding: 22px;
+    }
+    .panel h2, .panel h3 {
+      margin-top: 0;
+      color: #00656d;
+    }
+    label {
+      display: block;
+      font-weight: 600;
+      margin: 16px 0 7px;
+    }
+    input, select, textarea {
+      width: 100%;
+      border: 1px solid #b8d1d5;
+      border-radius: 8px;
+      padding: 11px;
+      font-size: 1rem;
+      background: #fff;
+    }
+    textarea {
+      min-height: 96px;
+      resize: vertical;
+    }
+    .field-grid {
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      gap: 12px;
+    }
+    .severity-group {
+      display: grid;
+      grid-template-columns: repeat(3, 1fr);
+      gap: 8px;
+      margin-top: 8px;
+    }
+    .severity-btn {
+      background: #eef7f8;
+      color: #005f66;
+      border: 1px solid #b8d1d5;
+    }
+    .severity-btn.selected {
+      background: #00656d;
+      color: white;
+      border-color: #00656d;
+    }
+    .hint {
+      color: #60777b;
+      font-size: 0.9rem;
+      margin-top: 7px;
+    }
+    .status {
+      display: none;
+      margin-top: 14px;
+      padding: 12px;
+      border-radius: 8px;
+      font-weight: 600;
+    }
+    .status.error {
+      display: block;
+      background: #fdeaea;
+      color: #8a1f1f;
+    }
+    .status.loading {
+      display: block;
+      background: #e8f6ff;
+      color: #09577d;
+    }
+    .result-header {
+      display: flex;
+      justify-content: space-between;
+      gap: 12px;
+      border-bottom: 1px solid #d9e7e9;
+      padding-bottom: 14px;
+      margin-bottom: 16px;
+    }
+    .disease {
+      font-size: 1.6rem;
+      font-weight: 700;
+      color: #004d54;
+    }
+    .confidence {
+      background: #e7f6ef;
+      color: #17643b;
+      border-radius: 999px;
+      padding: 8px 12px;
+      font-weight: 700;
+      align-self: start;
+      white-space: nowrap;
+    }
+    .cards {
+      display: grid;
+      grid-template-columns: repeat(2, minmax(0, 1fr));
+      gap: 14px;
+    }
+    .info-card {
+      background: #f7fbfb;
+      border: 1px solid #dcebed;
+      border-radius: 10px;
+      padding: 14px;
+    }
+    .info-card.full {
+      grid-column: 1 / -1;
+    }
+    .info-card h4 {
+      margin: 0 0 10px;
+      color: #00656d;
+    }
+    ul {
+      margin: 0;
+      padding-left: 20px;
+    }
+    li {
+      margin: 8px 0;
+    }
+    .chips {
+      display: flex;
+      gap: 8px;
+      flex-wrap: wrap;
+    }
+    .chip {
+      background: #e4f3f4;
+      color: #005f66;
+      border-radius: 999px;
+      padding: 7px 10px;
+      font-size: 0.9rem;
+    }
+    .warning {
+      margin-top: 14px;
+      background: #fff8df;
+      border-left: 4px solid #f0b429;
+      padding: 12px;
+      color: #5e4700;
+      border-radius: 8px;
+    }
+    .history-list {
+      padding-left: 0;
+      list-style: none;
+    }
+    .history-list li {
+      background: #f7fbfb;
+      border: 1px solid #dcebed;
+      border-radius: 8px;
+      padding: 10px;
+    }
+    @media (max-width: 850px) {
+      .layout, .cards, .field-grid {
+        grid-template-columns: 1fr;
+      }
+      .topbar, .result-header {
+        align-items: stretch;
+        flex-direction: column;
+      }
+      .severity-group {
+        grid-template-columns: 1fr;
+      }
+    }
+  </style>
+</head>
+<body>
+  <div class="shell">
+    <div class="topbar">
+      <div class="title">
+        <h1>Quick Symptom Diagnosis</h1>
+        <p>Enter symptoms and patient details to receive clear health guidance.</p>
+      </div>
+      <div class="top-actions">
+        <button type="button" class="btn-secondary" onclick="showHistory()">History</button>
+        <a class="btn btn-secondary" href="{{ url_for('dashboard') }}">Back to Dashboard</a>
+      </div>
+    </div>
+
+    <div class="layout">
+      <section class="panel">
+        <h2>Patient Details</h2>
+        <label for="symptoms">Symptoms</label>
+        <textarea id="symptoms" list="symptom-options" placeholder="Example: fever, cough, headache"></textarea>
+        <datalist id="symptom-options"></datalist>
+        <div class="hint">Use comma-separated symptoms. Try names like cough, high fever, headache, fatigue, vomiting.</div>
+
+        <label for="diseaseSelect">Or select a known disease</label>
+        <select id="diseaseSelect">
+          <option value="">Choose from available diseases</option>
+        </select>
+        <div class="hint">Use this if medicines are not shown from symptoms, or if you already know the condition.</div>
+
+        <div class="field-grid">
+          <div>
+            <label for="age">Age</label>
+            <input type="number" id="age" min="1" max="120" value="{{ user.age if user and user.age else '' }}" placeholder="Age">
+          </div>
+          <div>
+            <label for="gender">Gender</label>
+            <select id="gender">
+              <option {% if user and user.gender == 'Male' %}selected{% endif %}>Male</option>
+              <option {% if user and user.gender == 'Female' %}selected{% endif %}>Female</option>
+              <option {% if user and user.gender == 'Other' %}selected{% endif %}>Other</option>
+            </select>
+          </div>
+        </div>
+
+        <label>Symptom Severity</label>
+        <div class="severity-group">
+          <button type="button" class="severity-btn" onclick="selectSeverity('Mild', this)">Mild</button>
+          <button type="button" class="severity-btn" onclick="selectSeverity('Moderate', this)">Moderate</button>
+          <button type="button" class="severity-btn" onclick="selectSeverity('Severe', this)">Severe</button>
+        </div>
+
+        <button type="button" class="btn-primary" style="width:100%; margin-top:18px;" onclick="diagnose()">Get Diagnosis</button>
+        <button type="button" class="btn-secondary" style="width:100%; margin-top:10px;" onclick="getSelectedDiseaseDetails()">Get Selected Disease Details</button>
+        <div id="status" class="status"></div>
+        <div class="warning">
+          This tool is for screening support only. Emergency symptoms like chest pain, severe breathlessness, stroke signs, heavy bleeding, or unconsciousness need immediate medical care.
+        </div>
+      </section>
+
+      <section class="panel" id="output" style="display:none;">
+        <div class="result-header">
+          <div>
+            <h2>Diagnosis Result</h2>
+            <div class="disease" id="disease-name"></div>
+          </div>
+          <div class="confidence" id="confidence-text"></div>
+        </div>
+
+        <div class="cards">
+          <div class="info-card full">
+            <h4>Description</h4>
+            <p id="diagnosis-desc"></p>
+          </div>
+
+          <div class="info-card">
+            <h4>Suggested Medicines</h4>
+            <ul id="medicine-list"></ul>
+          </div>
+
+          <div class="info-card">
+            <h4>Precautions</h4>
+            <ul id="precaution-list"></ul>
+          </div>
+
+          <div class="info-card full">
+            <h4>Advice</h4>
+            <p id="advice-text"></p>
+          </div>
+
+          <div class="info-card">
+            <h4>Matched Symptoms</h4>
+            <div class="chips" id="matched-list"></div>
+          </div>
+
+          <div class="info-card">
+            <h4>Unmatched Input</h4>
+            <div class="chips" id="unmatched-list"></div>
+          </div>
+
+          <div class="info-card full">
+            <h4>Other Possible Matches</h4>
+            <ul id="top-predictions"></ul>
+          </div>
+
+          <div class="info-card full">
+            <h4>How Your Symptoms Were Read</h4>
+            <ul id="normalized-list"></ul>
+          </div>
+        </div>
+      </section>
+
+      <section class="panel" id="history" style="display:none;">
+        <h3>Recent Diagnosis History</h3>
+        <ul class="history-list" id="history-list"></ul>
+      </section>
+    </div>
+  </div>
+
+  <script>
+    let selectedSeverity = "";
+
+    function selectSeverity(level, button) {
+      selectedSeverity = level;
+      document.querySelectorAll(".severity-btn").forEach(btn => btn.classList.remove("selected"));
+      button.classList.add("selected");
+    }
+
+    function setStatus(message, type) {
+      const status = document.getElementById("status");
+      status.className = `status ${type || ""}`;
+      status.textContent = message || "";
+      status.style.display = message ? "block" : "none";
+    }
+
+    function chipList(values) {
+      if (!values || values.length === 0) {
+        return '<span class="chip">None</span>';
+      }
+      return values.map(value => `<span class="chip">${value}</span>`).join("");
+    }
+
+    async function loadSymptomCatalog() {
+      try {
+        const response = await fetch("/symptoms_catalog");
+        const symptoms = await response.json();
+        const options = document.getElementById("symptom-options");
+        options.innerHTML = symptoms.map(symptom => `<option value="${symptom}"></option>`).join("");
+      } catch (error) {
+        console.warn("Unable to load symptom catalog", error);
+      }
+    }
+
+    async function loadDiseaseCatalog() {
+      try {
+        const response = await fetch("/diseases_catalog");
+        const diseases = await response.json();
+        const select = document.getElementById("diseaseSelect");
+        select.innerHTML = '<option value="">Choose from available diseases</option>' +
+          diseases.map(disease => `<option value="${disease}">${disease}</option>`).join("");
+      } catch (error) {
+        console.warn("Unable to load disease catalog", error);
+      }
+    }
+
+    function renderResult(result) {
+      document.getElementById("disease-name").textContent = result.disease || "Possible condition";
+      document.getElementById("confidence-text").textContent = result.confidence ? `${result.confidence}% confidence` : "Guidance result";
+      document.getElementById("diagnosis-desc").textContent = result.description || "No description available.";
+      document.getElementById("medicine-list").innerHTML = (result.medicines || [])
+        .map(m => `<li><strong>${m.name}</strong><br>${m.dosage || "Consult doctor for dosage."}</li>`)
+        .join("") || "<li>No medicine guidance available. Consult a doctor.</li>";
+      document.getElementById("precaution-list").innerHTML = (result.precautions || [])
+        .map(p => `<li>${p}</li>`)
+        .join("") || "<li>No precautions available.</li>";
+      document.getElementById("advice-text").textContent = result.advice || "Consult a doctor for confirmation.";
+      document.getElementById("matched-list").innerHTML = chipList(result.matched_symptoms);
+      document.getElementById("unmatched-list").innerHTML = chipList(result.unmatched_symptoms);
+      document.getElementById("top-predictions").innerHTML = (result.top_predictions || [])
+        .map(p => `<li>${p.disease} - ${p.confidence}%</li>`)
+        .join("") || "<li>No alternate predictions available.</li>";
+      document.getElementById("normalized-list").innerHTML = (result.normalized_symptoms || [])
+        .map(s => `<li>${s.input} -> ${s.matched ? s.label : "Not recognized"}</li>`)
+        .join("") || "<li>No symptom mapping available.</li>";
+      document.getElementById("output").style.display = "block";
+    }
+
+    async function diagnose() {
+      const symptomText = document.getElementById("symptoms").value.trim();
+      const age = document.getElementById("age").value.trim();
+      const gender = document.getElementById("gender").value;
+
+      if (!symptomText || !age || !selectedSeverity) {
+        setStatus("Please enter symptoms, age, gender, and severity. If you already know the condition, select it from the dropdown and click Get Selected Disease Details.", "error");
+        return;
+      }
+
+      setStatus("Preparing your diagnosis...", "loading");
+      document.getElementById("output").style.display = "none";
+
+      try {
+        const response = await fetch("/predict", {
+          method: "POST",
+          headers: { "Content-Type": "application/json" },
+          body: JSON.stringify({
+            symptoms: symptomText.split(",").map(s => s.trim().toLowerCase()).filter(Boolean),
+            age,
+            gender,
+            severity: selectedSeverity,
+            selected_disease: document.getElementById("diseaseSelect").value
+          })
+        });
+
+        const result = await response.json();
+        if (!response.ok) {
+          setStatus(result.error || "Diagnosis request failed.", "error");
+          return;
+        }
+
+        renderResult(result);
+        setStatus("", "");
+        await showHistory(false);
+      } catch (error) {
+        console.error(error);
+        setStatus("Unable to prepare the diagnosis right now. Please try again.", "error");
+      }
+    }
+
+    async function getSelectedDiseaseDetails() {
+      const disease = document.getElementById("diseaseSelect").value;
+      if (!disease) {
+        setStatus("Please select a disease from the dropdown.", "error");
+        return;
+      }
+      setStatus("Finding medicines and precautions...", "loading");
+      try {
+        const response = await fetch(`/disease_details?disease=${encodeURIComponent(disease)}`);
+        const result = await response.json();
+        if (!response.ok) {
+          setStatus(result.error || "Unable to load disease details.", "error");
+          return;
+        }
+        renderResult(result);
+        setStatus("", "");
+      } catch (error) {
+        console.error(error);
+        setStatus("Unable to fetch disease details. Please try again.", "error");
+      }
+    }
+
+    async function showHistory(makeVisible = true) {
+      try {
+        const response = await fetch("/diagnosis_history");
+        const historyList = await response.json();
+        document.getElementById("history-list").innerHTML = historyList
+          .map(h => `<li><strong>${h.date}</strong><br>${h.symptoms} -> ${h.diagnosis}</li>`)
+          .join("") || "<li>No saved diagnosis history yet.</li>";
+        if (makeVisible || historyList.length) {
+          document.getElementById("history").style.display = "block";
+        }
+      } catch (error) {
+        document.getElementById("history-list").innerHTML = "<li>Unable to load history.</li>";
+        document.getElementById("history").style.display = "block";
+      }
+    }
+
+    loadSymptomCatalog();
+    loadDiseaseCatalog();
+  </script>
+</body>
+</html>

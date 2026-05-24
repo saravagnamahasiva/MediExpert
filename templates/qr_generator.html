@@ -1,0 +1,201 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <title>Health Report QR - MediExpert+</title>
+  <link rel="icon" type="image/png" href="{{ url_for('static', filename='logo.png') }}">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <style>
+    * { box-sizing: border-box; }
+    body {
+      margin: 0;
+      min-height: 100vh;
+      font-family: 'Segoe UI', Arial, sans-serif;
+      background: linear-gradient(rgba(6, 47, 68, 0.72), rgba(6, 47, 68, 0.72)), url("{{ url_for('static', filename='background2.jpg') }}") center/cover fixed;
+      color: #14323d;
+      padding: 28px;
+    }
+    .shell {
+      width: min(1080px, 100%);
+      margin: 0 auto;
+      background: rgba(255, 255, 255, 0.96);
+      border-radius: 8px;
+      overflow: hidden;
+      box-shadow: 0 20px 45px rgba(0, 0, 0, 0.28);
+    }
+    .topbar {
+      display: flex;
+      justify-content: space-between;
+      gap: 16px;
+      align-items: center;
+      padding: 18px 22px;
+      border-bottom: 1px solid #d9e8ed;
+    }
+    .brand { font-size: 22px; font-weight: 800; color: #0077b6; }
+    .back { color: #0d5f82; font-weight: 700; text-decoration: none; }
+    .hero {
+      display: grid;
+      grid-template-columns: 1.05fr 0.95fr;
+      gap: 26px;
+      padding: 28px;
+      align-items: center;
+    }
+    h1 { margin: 0 0 10px; color: #023e8a; font-size: clamp(26px, 4vw, 42px); letter-spacing: 0; }
+    .sub { margin: 0; color: #496873; line-height: 1.6; max-width: 58ch; }
+    .summary {
+      margin-top: 22px;
+      display: grid;
+      grid-template-columns: repeat(3, 1fr);
+      gap: 12px;
+    }
+    .stat {
+      border: 1px solid #d9e8ed;
+      border-radius: 8px;
+      padding: 14px;
+      background: #f7fcfd;
+    }
+    .stat strong { display: block; color: #023e8a; font-size: 22px; }
+    .stat span { color: #607a83; font-size: 13px; }
+    .qr-panel {
+      background: #effafe;
+      border: 1px solid #cce8f1;
+      border-radius: 8px;
+      padding: 22px;
+      text-align: center;
+    }
+    .qr-panel img {
+      width: min(280px, 100%);
+      background: white;
+      padding: 14px;
+      border-radius: 8px;
+      border: 1px solid #d7e5ea;
+    }
+    .report-link {
+      margin: 14px 0 0;
+      padding: 10px;
+      background: white;
+      border: 1px solid #d8e8ee;
+      border-radius: 8px;
+      color: #2f5968;
+      font-size: 13px;
+      word-break: break-all;
+    }
+    .scan-note {
+      margin: 10px auto 0;
+      color: #4f6973;
+      font-size: 13px;
+      line-height: 1.45;
+      max-width: 42ch;
+    }
+    .actions {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 10px;
+      justify-content: center;
+      margin-top: 16px;
+    }
+    .btn {
+      display: inline-flex;
+      align-items: center;
+      justify-content: center;
+      min-height: 42px;
+      padding: 10px 16px;
+      border-radius: 8px;
+      border: 0;
+      text-decoration: none;
+      font-weight: 700;
+      color: white;
+      background: #0077b6;
+      cursor: pointer;
+    }
+    .btn.secondary { background: #178a62; }
+    .btn.light { background: #4e6670; }
+    .preview {
+      padding: 0 28px 28px;
+    }
+    .section-title {
+      margin: 0 0 12px;
+      color: #023e8a;
+      font-size: 20px;
+    }
+    .details-grid {
+      display: grid;
+      grid-template-columns: 130px repeat(4, 1fr);
+      gap: 12px;
+      margin-bottom: 20px;
+      align-items: stretch;
+    }
+    .detail {
+      background: #f8fbfc;
+      border: 1px solid #dce9ee;
+      border-radius: 8px;
+      padding: 12px;
+    }
+    .owner-photo {
+      display: flex;
+      align-items: center;
+      justify-content: center;
+    }
+    .owner-photo img {
+      width: 96px;
+      height: 96px;
+      border-radius: 50%;
+      object-fit: cover;
+      border: 4px solid #caf0f8;
+      background: white;
+    }
+    .detail span { display: block; color: #6b8088; font-size: 12px; }
+    .detail strong { color: #1d3f4d; }
+    @media (max-width: 800px) {
+      body { padding: 14px; }
+      .hero, .details-grid { grid-template-columns: 1fr; }
+      .summary { grid-template-columns: 1fr; }
+      .topbar { align-items: flex-start; flex-direction: column; }
+    }
+  </style>
+</head>
+<body>
+  <main class="shell">
+    <div class="topbar">
+      <div class="brand">MediExpert+</div>
+      <a class="back" href="{{ url_for('dashboard') }}">Back to Dashboard</a>
+    </div>
+
+    <section class="hero">
+      <div>
+        <h1>Health Report QR</h1>
+        <p class="sub">Scan this QR to open a complete health report with your personal profile, diagnosis history, symptom logs, reminders, searches, and full health timeline. Powered by MediExpert+.</p>
+        <div class="summary">
+          <div class="stat"><strong>{{ records|length }}</strong><span>diagnosis records</span></div>
+          <div class="stat"><strong>{{ symptom_logs|length }}</strong><span>symptom logs</span></div>
+          <div class="stat"><strong>{{ reminders|length }}</strong><span>reminders</span></div>
+        </div>
+      </div>
+
+      <div class="qr-panel">
+        <img src="data:image/png;base64,{{ qr_code_data }}" alt="Health report QR code">
+        <div class="report-link">{{ report_url }}</div>
+        <p class="scan-note">For phone scanning, keep your phone and this computer on the same network while the app is running.</p>
+        <div class="actions">
+          <a class="btn secondary" href="{{ qr_download_url }}" download="mediexpert_health_report_qr.png">Download QR</a>
+          <a class="btn" href="{{ report_download_url }}" download="mediexpert_health_report.pdf">Download Record</a>
+          <a class="btn light" href="{{ report_view_url }}">View Report</a>
+        </div>
+      </div>
+    </section>
+
+    <section class="preview">
+      <h2 class="section-title">Report Owner</h2>
+      <div class="details-grid">
+        <div class="detail owner-photo">
+          <img src="{{ user.profile_photo if user.profile_photo else url_for('static', filename='patinlogo.png') }}" alt="Profile photo">
+        </div>
+        <div class="detail"><span>Name</span><strong>{{ user.name }}</strong></div>
+        <div class="detail"><span>Email</span><strong>{{ user.email }}</strong></div>
+        <div class="detail"><span>Age</span><strong>{{ user.age or 'Not set' }}</strong></div>
+        <div class="detail"><span>Gender</span><strong>{{ user.gender or 'Not set' }}</strong></div>
+      </div>
+    </section>
+  </main>
+</body>
+</html>

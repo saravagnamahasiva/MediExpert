@@ -1,0 +1,287 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <title>Symptom Tracker - MediExpert+</title>
+  <link rel="icon" type="image/png" href="{{ url_for('static', filename='logo.png') }}">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <style>
+    * { box-sizing: border-box; }
+    body {
+      margin: 0;
+      min-height: 100vh;
+      font-family: 'Segoe UI', Arial, sans-serif;
+      background: linear-gradient(rgba(3, 36, 58, 0.68), rgba(3, 36, 58, 0.68)), url("{{ url_for('static', filename='background2.jpg') }}") center/cover fixed;
+      color: #17323d;
+      padding: 24px;
+    }
+    .page {
+      width: min(1120px, 100%);
+      margin: 0 auto;
+      display: grid;
+      grid-template-columns: 330px 1fr;
+      gap: 18px;
+    }
+    .panel {
+      background: rgba(255,255,255,0.97);
+      border-radius: 8px;
+      box-shadow: 0 12px 30px rgba(0,0,0,0.2);
+      padding: 22px;
+    }
+    .profile {
+      position: sticky;
+      top: 24px;
+      align-self: start;
+    }
+    .avatar {
+      width: 118px;
+      height: 118px;
+      border-radius: 50%;
+      object-fit: cover;
+      border: 4px solid #caf0f8;
+      background: #eef8fb;
+      display: block;
+      margin: 0 auto 16px;
+    }
+    h1, h2, h3 { letter-spacing: 0; }
+    h1 { margin: 0 0 8px; color: #023e8a; font-size: 30px; text-align: center; }
+    h2 { margin: 0 0 14px; color: #023e8a; }
+    h3 { margin: 0 0 10px; color: #0b6580; }
+    .muted { color: #607882; line-height: 1.5; margin: 0 0 16px; }
+    .detail {
+      display: flex;
+      justify-content: space-between;
+      gap: 12px;
+      padding: 11px 0;
+      border-bottom: 1px solid #dfecef;
+    }
+    .detail:last-child { border-bottom: 0; }
+    .detail span { color: #667d86; }
+    .detail strong { text-align: right; }
+    .actions {
+      display: grid;
+      grid-template-columns: repeat(3, 1fr);
+      gap: 10px;
+      margin-bottom: 18px;
+    }
+    .btn {
+      display: inline-flex;
+      align-items: center;
+      justify-content: center;
+      min-height: 44px;
+      padding: 10px 14px;
+      border-radius: 8px;
+      background: #0077b6;
+      color: white;
+      text-decoration: none;
+      font-weight: 800;
+      border: 0;
+      cursor: pointer;
+      text-align: center;
+    }
+    .btn.green { background: #178a62; }
+    .btn.gray { background: #566b75; }
+    .checkin {
+      background: #f6fbfd;
+      border: 1px solid #d7e9ef;
+      border-radius: 8px;
+      padding: 18px;
+      margin-bottom: 18px;
+    }
+    .question {
+      background: white;
+      border: 1px solid #dbe9ee;
+      border-radius: 8px;
+      padding: 14px;
+      margin-bottom: 12px;
+    }
+    .question p { margin: 0 0 10px; font-weight: 800; color: #173e4c; }
+    .choices {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 10px;
+    }
+    .choice input { position: absolute; opacity: 0; pointer-events: none; }
+    .choice span {
+      display: inline-flex;
+      align-items: center;
+      justify-content: center;
+      min-height: 40px;
+      padding: 9px 13px;
+      border-radius: 8px;
+      border: 1px solid #bdd7df;
+      background: #fff;
+      cursor: pointer;
+      font-weight: 700;
+    }
+    .choice input:checked + span {
+      background: #0077b6;
+      color: white;
+      border-color: #0077b6;
+    }
+    textarea {
+      width: 100%;
+      min-height: 88px;
+      resize: vertical;
+      border: 1px solid #c9dce3;
+      border-radius: 8px;
+      padding: 12px;
+      font: inherit;
+    }
+    .alert {
+      margin-bottom: 14px;
+      padding: 11px 12px;
+      border-radius: 8px;
+      background: #e7f7ef;
+      color: #145a38;
+      font-weight: 700;
+    }
+    .logs {
+      display: grid;
+      gap: 10px;
+      margin-bottom: 18px;
+    }
+    .log-item {
+      background: #f8fbfc;
+      border: 1px solid #dfecef;
+      border-radius: 8px;
+      padding: 12px;
+    }
+    .log-item small { display: block; color: #6c8189; margin-bottom: 5px; }
+    table {
+      width: 100%;
+      border-collapse: collapse;
+      background: white;
+      border: 1px solid #d9e7ec;
+      border-radius: 8px;
+      overflow: hidden;
+    }
+    th, td {
+      padding: 11px;
+      border-bottom: 1px solid #e3edf1;
+      text-align: left;
+      vertical-align: top;
+      font-size: 14px;
+      line-height: 1.45;
+    }
+    th { background: #e7f6fb; color: #164356; }
+    tr:last-child td { border-bottom: 0; }
+    @media (max-width: 900px) {
+      body { padding: 14px; }
+      .page { grid-template-columns: 1fr; }
+      .profile { position: static; }
+      .actions { grid-template-columns: 1fr; }
+    }
+    @media (max-width: 650px) {
+      table, thead, tbody, tr, th, td { display: block; }
+      thead { display: none; }
+      tr { border-bottom: 1px solid #d9e7ec; padding: 8px 0; }
+      td { border: 0; padding: 7px 10px; }
+      td::before { content: attr(data-label); display: block; font-weight: 800; color: #0f5f7c; margin-bottom: 2px; }
+    }
+  </style>
+</head>
+<body>
+  <main class="page">
+    <aside class="panel profile">
+      <img class="avatar" src="{{ user.profile_photo if user and user.profile_photo else url_for('static', filename='patinlogo.png') }}" alt="Profile photo">
+      <h1>Symptom Tracker</h1>
+      <p class="muted">A simple place to check in with yourself and continue to diagnosis when needed.</p>
+      <div class="detail"><span>Name</span><strong>{{ user.name if user else 'Not set' }}</strong></div>
+      <div class="detail"><span>Age</span><strong>{{ user.age if user and user.age else 'Not set' }}</strong></div>
+      <div class="detail"><span>Gender</span><strong>{{ user.gender if user and user.gender else 'Not set' }}</strong></div>
+    </aside>
+
+    <section>
+      <div class="actions">
+        <a class="btn green" href="{{ url_for('log_symptom') }}">Add New Symptoms</a>
+        <a class="btn" href="{{ url_for('symptom_diagnosis') }}">Diagnosis</a>
+        <a class="btn gray" href="{{ url_for('dashboard') }}">Dashboard</a>
+      </div>
+
+      <div class="panel checkin">
+        <h2>How are you feeling right now?</h2>
+        <p class="muted">Choose the closest answer and add anything you want to remember.</p>
+        {% with messages = get_flashed_messages(with_categories=true) %}
+          {% if messages %}
+            {% for category, message in messages %}
+              {% if category == 'success' %}
+                <div class="alert">{{ message }}</div>
+              {% endif %}
+            {% endfor %}
+          {% endif %}
+        {% endwith %}
+        <form method="post">
+          <div class="question">
+            <p>Today I feel...</p>
+            <div class="choices">
+              <label class="choice"><input type="radio" name="feeling" value="Good" required><span>Good</span></label>
+              <label class="choice"><input type="radio" name="feeling" value="Okay"><span>Okay</span></label>
+              <label class="choice"><input type="radio" name="feeling" value="Not good"><span>Not good</span></label>
+              <label class="choice"><input type="radio" name="feeling" value="Worried"><span>Worried</span></label>
+            </div>
+          </div>
+          <div class="question">
+            <p>My energy level is...</p>
+            <div class="choices">
+              <label class="choice"><input type="radio" name="energy" value="High"><span>High</span></label>
+              <label class="choice"><input type="radio" name="energy" value="Normal"><span>Normal</span></label>
+              <label class="choice"><input type="radio" name="energy" value="Low"><span>Low</span></label>
+              <label class="choice"><input type="radio" name="energy" value="Very low"><span>Very low</span></label>
+            </div>
+          </div>
+          <div class="question">
+            <p>Anything else happening?</p>
+            <textarea name="note" placeholder="Example: mild headache since morning, less sleep, stomach discomfort..."></textarea>
+          </div>
+          <button class="btn green" type="submit">Save Check-in</button>
+        </form>
+      </div>
+
+      <div class="panel">
+        <h2>Recent Check-ins</h2>
+        <div class="logs">
+          {% for log in symptom_logs %}
+            <div class="log-item">
+              <small>{{ log.created_at }}</small>
+              {{ log.symptoms }}
+            </div>
+          {% else %}
+            <div class="log-item">No check-ins yet. Save how you feel to start tracking.</div>
+          {% endfor %}
+        </div>
+      </div>
+
+      <div class="panel">
+        <h2>Diagnosis and Symptom Records</h2>
+        <table>
+          <thead>
+            <tr>
+              <th>Date</th>
+              <th>Symptoms</th>
+              <th>Severity</th>
+              <th>Diagnosis</th>
+              <th>Medicines / Precautions</th>
+            </tr>
+          </thead>
+          <tbody>
+            {% for record in records %}
+            <tr>
+              <td data-label="Date">{{ record.date }}</td>
+              <td data-label="Symptoms">{{ record.symptoms }}</td>
+              <td data-label="Severity">{{ record.severity or 'Not set' }}</td>
+              <td data-label="Diagnosis">{{ record.diagnosis }}</td>
+              <td data-label="Medicines / Precautions">{{ record.medicine }}<br>{{ record.precautions }}</td>
+            </tr>
+            {% else %}
+            <tr>
+              <td data-label="Status" colspan="5">No diagnosis records yet. Add symptoms or run a diagnosis to start tracking.</td>
+            </tr>
+            {% endfor %}
+          </tbody>
+        </table>
+      </div>
+    </section>
+  </main>
+</body>
+</html>

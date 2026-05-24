@@ -1,0 +1,92 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <title>MediExpert+</title>
+<link rel="icon" type="image/png" href="{{ url_for('static', filename='logo.png') }}">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+  <style>
+    body {
+      margin: 0;
+      padding: 0;
+      background: url('/static/background.jpg') no-repeat center center fixed;
+      background-size: cover;
+      font-family: 'Segoe UI', sans-serif;
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      justify-content: center;
+      height: 100vh;
+      text-align: center;
+      backdrop-filter: brightness(0.9);
+    }
+    .logo {
+      font-size: 48px;
+      font-weight: bold;
+      color: #ffffff;
+      text-shadow: 2px 2px 5px rgba(0, 0, 0, 0.6);
+      margin-bottom: 10px;
+    }
+    .tagline {
+      font-size: 20px;
+      color: #f1f1f1;
+      margin-bottom: 30px;
+      text-shadow: 1px 1px 3px rgba(0, 0, 0, 0.5);
+    }
+    .btn {
+  background-color: #023E8A;
+  color: white;
+  border: none;
+  padding: 18px 20px;
+  font-size: 18px;
+  border-radius: 70%;
+  width: 100px;
+  height: 100px;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  text-decoration: none;
+  transition: transform 0.3s ease, background-color 0.3s ease;
+  box-shadow: 4px 4px 10px rgba(0, 0, 0, 0.5);
+}
+
+/* Hover effect */
+.btn:hover {
+  background-color: #222;
+  transform: scale(1.1);
+}
+@media screen and (max-width: 600px) {
+  h1, h2 {
+    font-size: 1.2rem;
+  }
+
+  .btn {
+    width: 100%;
+    padding: 12px;
+    font-size: 1rem;
+  }
+
+  input, select {
+    font-size: 1rem;
+    padding: 10px;
+    width: 100%;
+  }
+
+  .container {
+    padding: 15px;
+  }
+}
+
+  </style>
+</head>
+<body>
+  <div class="logo">🩺 MediExpert+</div>
+  <div class="tagline"> AI based Smart Symptom Checker & Health Advisor</div> <br> <br> <br> <br><br><br><br><br><br> <br>
+<br><br>
+  <form action="/login">
+    <button type="submit" class="btn">Get Started</button>
+</form>
+
+</body>
+</html>

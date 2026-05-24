@@ -1,0 +1,1179 @@
+{
+  "Itching": {
+    "description": "Itching is an irritating sensation that causes a desire to scratch the skin. It can be caused by allergies, dry skin, or infections.",
+    "medicines": [
+      "Calamine lotion",
+      "Hydrocortisone cream",
+      "Antihistamines"
+    ],
+    "precautions": [
+      "Avoid scratching the affected area.",
+      "Use mild soap and moisturizers.",
+      "Wear breathable cotton clothes."
+    ],
+    "dosage": {
+      "Calamine lotion": "Apply 2-3 times daily on affected area.",
+      "Hydrocortisone cream": "Apply thinly once or twice a day for up to 7 days.",
+      "Antihistamines": "Take one tablet (10 mg) daily before bedtime."
+    }
+  },
+  "Skin Rash": {
+    "description": "A skin rash is an area of irritated or swollen skin, often due to allergies, infections, or autoimmune conditions.",
+    "medicines": [
+      "Hydrocortisone",
+      "Antihistamines",
+      "Calamine lotion"
+    ],
+    "precautions": [
+      "Avoid allergens or irritants.",
+      "Keep skin clean and dry.",
+      "Apply soothing creams as needed."
+    ],
+    "dosage": {
+      "Hydrocortisone": "Apply twice daily to the rash.",
+      "Antihistamines": "Take 10 mg once daily.",
+      "Calamine lotion": "Apply 3 times a day."
+    }
+  },
+  "Nodal Skin Eruptions": {
+    "description": "These are inflamed, painful nodules or lumps under the skin, commonly caused by infections or immune responses.",
+    "medicines": [
+      "Antibiotics",
+      "NSAIDs",
+      "Topical steroids"
+    ],
+    "precautions": [
+      "Avoid tight clothing.",
+      "Maintain hygiene.",
+      "Follow full antibiotic course."
+    ],
+    "dosage": {
+      "Antibiotics": "500 mg twice a day for 5–7 days.",
+      "NSAIDs": "Take 1 tablet (400 mg) after meals, twice daily.",
+      "Topical steroids": "Apply once daily under supervision."
+    }
+  },
+  "Continuous Sneezing": {
+    "description": "A reflex reaction to irritants in the nasal passages, often due to allergies or infections.",
+    "medicines": [
+      "Levocetirizine",
+      "Nasal sprays",
+      "Antihistamines"
+    ],
+    "precautions": [
+      "Avoid allergens like dust and pollen.",
+      "Use air filters or purifiers.",
+      "Keep nasal passages moist."
+    ],
+    "dosage": {
+      "Levocetirizine": "5 mg once at night.",
+      "Nasal sprays": "1–2 sprays per nostril twice daily.",
+      "Antihistamines": "Take as per severity, generally 1 tablet/day."
+    }
+  },
+  "Shivering": {
+    "description": "Shivering is a bodily response to cold or fever, often indicating infection or inflammation.",
+    "medicines": [
+      "Paracetamol",
+      "Ibuprofen",
+      "Warm fluids"
+    ],
+    "precautions": [
+      "Stay warm and hydrated.",
+      "Monitor body temperature.",
+      "Rest adequately."
+    ],
+    "dosage": {
+      "Paracetamol": "500 mg every 6 hours if fever persists.",
+      "Ibuprofen": "400 mg every 8 hours with food.",
+      "Warm fluids": "Drink 1 cup every 2–3 hours."
+    }
+  },
+  "Chills": {
+    "description": "Chills often accompany fever and involve feeling cold and shivering, typically from infection.",
+    "medicines": [
+      "Paracetamol",
+      "Warm fluids",
+      "Blankets"
+    ],
+    "precautions": [
+      "Stay wrapped in warm clothing or blankets.",
+      "Check for fever and manage it.",
+      "Avoid exposure to cold drafts."
+    ],
+    "dosage": {
+      "Paracetamol": "Take 500 mg every 4–6 hours as needed.",
+      "Warm fluids": "Drink 1–2 cups per hour.",
+      "Blankets": "Use continuously until body temperature normalizes."
+    }
+  },
+  "Joint Pain": {
+    "description": "Joint pain may result from inflammation, injury, or chronic conditions like arthritis.",
+    "medicines": [
+      "Ibuprofen",
+      "Naproxen",
+      "Topical analgesics"
+    ],
+    "precautions": [
+      "Avoid strenuous activity.",
+      "Use hot/cold compresses.",
+      "Maintain a healthy weight."
+    ],
+    "dosage": {
+      "Ibuprofen": "400 mg every 8 hours after meals.",
+      "Naproxen": "250 mg twice a day.",
+      "Topical analgesics": "Apply 2–3 times daily."
+    }
+  },
+  "Stomach Pain": {
+    "description": "Pain in the stomach area may be due to indigestion, infection, or ulcers.",
+    "medicines": [
+      "Omeprazole",
+      "Dicyclomine",
+      "Antacids"
+    ],
+    "precautions": [
+      "Avoid spicy and oily foods.",
+      "Eat light meals.",
+      "Stay hydrated."
+    ],
+    "dosage": {
+      "Omeprazole": "20 mg once daily before breakfast.",
+      "Dicyclomine": "10 mg 3 times a day before meals.",
+      "Antacids": "1/2 tablets after meals and before bedtime."
+    }
+  },
+  "Acidity": {
+    "description": "Acidity occurs when stomach acid flows back into the esophagus, causing heartburn and discomfort.",
+    "medicines": [
+      "Pantoprazole",
+      "Antacids",
+      "Ranitidine"
+    ],
+    "precautions": [
+      "Avoid heavy meals before bed.",
+      "Reduce intake of caffeine and spicy food.",
+      "Don't lie down immediately after eating."
+    ],
+    "dosage": {
+      "Pantoprazole": "40 mg once daily before breakfast.",
+      "Antacids": "2 tablets after meals.",
+      "Ranitidine": "150 mg twice daily."
+    }
+  },
+  "Ulcers on Tongue": {
+    "description": "Painful sores in the mouth, often caused by stress, minor injury, or certain foods.",
+    "medicines": [
+      "Topical gel (benzocaine)",
+      "Vitamin B complex",
+      "Antiseptic mouthwash"
+    ],
+    "precautions": [
+      "Avoid acidic or spicy foods.",
+      "Maintain oral hygiene.",
+      "Rinse with warm salt water."
+    ],
+    "dosage": {
+      "Topical gel": "Apply 3–4 times a day on ulcers.",
+      "Vitamin B complex": "1 tablet daily.",
+      "Antiseptic mouthwash": "Rinse twice daily."
+    }
+  },
+  "Muscle Wasting": {
+    "description": "Loss of muscle mass due to lack of use, disease, or malnutrition.",
+    "medicines": [
+      "Nutritional supplements",
+      "Protein powder",
+      "Physical therapy"
+    ],
+    "precautions": [
+      "Engage in regular physical activity.",
+      "Maintain a high-protein diet.",
+      "Avoid prolonged inactivity."
+    ],
+    "dosage": {
+      "Nutritional supplements": "1 sachet daily with milk or water.",
+      "Protein powder": "2 scoops per day with meals.",
+      "Physical therapy": "As advised, 3–5 times per week."
+    }
+  },
+  "Vomiting": {
+    "description": "Vomiting is the act of ejecting stomach contents, often due to infection, food poisoning, or motion sickness.",
+    "medicines": [
+      "Ondansetron",
+      "Domperidone",
+      "ORS"
+    ],
+    "precautions": [
+      "Avoid solid food until vomiting stops.",
+      "Take small sips of water.",
+      "Rehydrate with ORS."
+    ],
+    "dosage": {
+      "Ondansetron": "4 mg every 8 hours as needed.",
+      "Domperidone": "10 mg before meals up to 3 times daily.",
+      "ORS": "1 cup every 30 minutes."
+    }
+  },
+  "Burning Micturition": {
+    "description": "A burning sensation while urinating, often due to urinary tract infection (UTI).",
+    "medicines": [
+      "Ciprofloxacin",
+      "Urinary alkalizers",
+      "Fluids"
+    ],
+    "precautions": [
+      "Drink plenty of water.",
+      "Maintain hygiene.",
+      "Complete antibiotic course."
+    ],
+    "dosage": {
+      "Ciprofloxacin": "500 mg twice daily for 5 days.",
+      "Urinary alkalizers": "1 sachet in water twice daily.",
+      "Fluids": "Drink 2–3 liters/day."
+    }
+  },
+  "Spotting Urination": {
+    "description": "Small amounts of blood or unusual spotting during urination, possibly indicating infection or trauma.",
+    "medicines": [
+      "Antibiotics",
+      "Urine alkalizers",
+      "Fluids"
+    ],
+    "precautions": [
+      "Avoid holding urine.",
+      "Stay hydrated.",
+      "Consult doctor for persistent symptoms."
+    ],
+    "dosage": {
+      "Antibiotics": "As prescribed, commonly 500 mg twice daily.",
+      "Urine alkalizers": "1 sachet in water twice daily.",
+      "Fluids": "2.5–3 liters/day."
+    }
+  },
+  "Fatigue": {
+    "description": "A feeling of tiredness or lack of energy, often linked to overwork, stress, or illness.",
+    "medicines": [
+      "Multivitamins",
+      "Iron supplements",
+      "B-complex"
+    ],
+    "precautions": [
+      "Ensure 7–8 hours of sleep.",
+      "Eat a balanced diet.",
+      "Avoid excessive caffeine and alcohol."
+    ],
+    "dosage": {
+      "Multivitamins": "1 tablet daily.",
+      "Iron supplements": "1 tablet after lunch.",
+      "B-complex": "1 tablet per day."
+    }
+  },
+  "Weight Gain": {
+    "description": "An increase in body weight that may result from diet, hormonal imbalance, or medical conditions.",
+    "medicines": [
+      "Thyroxine (if hypothyroid)",
+      "Metformin (if insulin resistance)",
+      "Lifestyle changes"
+    ],
+    "precautions": [
+      "Exercise regularly.",
+      "Limit sugar and fat intake.",
+      "Monitor thyroid levels if applicable."
+    ],
+    "dosage": {
+      "Thyroxine": "25–100 mcg daily on empty stomach (if needed).",
+      "Metformin": "500 mg once or twice daily with meals.",
+      "Lifestyle changes": "As per dietician guidance."
+    }
+  },
+  "Anxiety": {
+    "description": "A mental health condition marked by excessive worry, restlessness, or nervousness.",
+    "medicines": [
+      "Alprazolam",
+      "Escitalopram",
+      "Therapy"
+    ],
+    "precautions": [
+      "Practice relaxation techniques.",
+      "Maintain a sleep schedule.",
+      "Avoid caffeine and alcohol."
+    ],
+    "dosage": {
+      "Alprazolam": "0.25–0.5 mg at bedtime (short-term use only).",
+      "Escitalopram": "10 mg once daily.",
+      "Therapy": "Weekly sessions as advised."
+    }
+  },
+  "Cold Hands and Feets": {
+    "description": "Reduced blood circulation or cold weather can cause extremities to feel cold frequently.",
+    "medicines": [
+      "Nifedipine (if Raynaud's)",
+      "Warm compress",
+      "Multivitamins"
+    ],
+    "precautions": [
+      "Wear gloves and socks.",
+      "Avoid sudden temperature changes.",
+      "Stay physically active."
+    ],
+    "dosage": {
+      "Nifedipine": "10 mg twice daily if prescribed.",
+      "Warm compress": "Apply 2–3 times a day.",
+      "Multivitamins": "1 tablet daily."
+    }
+  },
+  "Mood Swings": {
+    "description": "Rapid changes in mood often linked to hormonal changes, stress, or mental health conditions.",
+    "medicines": [
+      "Fluoxetine",
+      "Mood stabilizers",
+      "Therapy"
+    ],
+    "precautions": [
+      "Track mood triggers.",
+      "Maintain routine and sleep schedule.",
+      "Avoid alcohol or stimulants."
+    ],
+    "dosage": {
+      "Fluoxetine": "20 mg once daily.",
+      "Mood stabilizers": "As per psychiatric advice.",
+      "Therapy": "1–2 sessions weekly."
+    }
+  },
+  "Weight Loss": {
+    "description": "Unintentional weight loss may indicate underlying illness, malnutrition, or metabolic issues.",
+    "medicines": [
+      "Appetite stimulants",
+      "Nutritional supplements",
+      "High-calorie diet"
+    ],
+    "precautions": [
+      "Eat calorie-rich meals.",
+      "Consult a dietician.",
+      "Check for underlying disease."
+    ],
+    "dosage": {
+      "Appetite stimulants": "As prescribed, usually once daily before meals.",
+      "Nutritional supplements": "2 sachets/day with milk or water.",
+      "High-calorie diet": "As per dietician plan."
+    }
+  },
+  "Fungal infection": {
+    "description": "A fungal infection affects the skin, nails, or moist body areas and can cause itching, redness, scaling, or ring-shaped rashes.",
+    "medicines": [
+      "Clotrimazole cream",
+      "Antifungal powder",
+      "Cetirizine"
+    ],
+    "dosage": {
+      "Clotrimazole cream": "Apply thinly twice daily for 2-4 weeks.",
+      "Antifungal powder": "Dust affected area once or twice daily.",
+      "Cetirizine": "10 mg once daily at night if itching is troublesome."
+    },
+    "precautions": [
+      "Keep the area clean and dry.",
+      "Avoid sharing towels or clothing.",
+      "Wear loose cotton clothes.",
+      "Continue treatment for the advised duration."
+    ],
+    "advice": "This is AI-assisted guidance. Consult a qualified doctor for confirmation, prescriptions, severe symptoms, pregnancy, children, elderly patients, or long-lasting illness."
+  },
+  "Allergy": {
+    "description": "Allergy is an immune reaction to triggers such as dust, pollen, foods, medicines, or insect bites.",
+    "medicines": [
+      "Cetirizine",
+      "Levocetirizine",
+      "Saline nasal spray"
+    ],
+    "dosage": {
+      "Cetirizine": "10 mg once daily when needed.",
+      "Levocetirizine": "5 mg once at night.",
+      "Saline nasal spray": "1-2 sprays per nostril as needed."
+    },
+    "precautions": [
+      "Avoid known allergens.",
+      "Use a mask in dusty areas.",
+      "Seek urgent help for breathing difficulty or swelling of lips/face."
+    ],
+    "advice": "This is AI-assisted guidance. Consult a qualified doctor for confirmation, prescriptions, severe symptoms, pregnancy, children, elderly patients, or long-lasting illness."
+  },
+  "GERD": {
+    "description": "GERD is acid reflux where stomach acid flows back into the food pipe, causing burning chest discomfort, sour taste, or belching.",
+    "medicines": [
+      "Antacid",
+      "Pantoprazole",
+      "Oral rehydration fluids"
+    ],
+    "dosage": {
+      "Antacid": "Take after meals as per label.",
+      "Pantoprazole": "40 mg before breakfast only if advised by a clinician.",
+      "Oral rehydration fluids": "Sip as needed."
+    },
+    "precautions": [
+      "Avoid spicy, oily, and late-night meals.",
+      "Do not lie down immediately after eating.",
+      "Elevate head while sleeping.",
+      "Limit caffeine and alcohol."
+    ],
+    "advice": "This is AI-assisted guidance. Consult a qualified doctor for confirmation, prescriptions, severe symptoms, pregnancy, children, elderly patients, or long-lasting illness."
+  },
+  "Chronic cholestasis": {
+    "description": "Chronic cholestasis is reduced bile flow that can cause itching, jaundice, dark urine, pale stools, and fatigue.",
+    "medicines": [
+      "Doctor-prescribed bile therapy",
+      "Vitamin supplements",
+      "Itch-relief medicines"
+    ],
+    "dosage": {
+      "Doctor-prescribed bile therapy": "Use only under specialist advice.",
+      "Vitamin supplements": "As prescribed after blood tests.",
+      "Itch-relief medicines": "Use as advised by doctor."
+    },
+    "precautions": [
+      "Consult a gastroenterologist.",
+      "Avoid alcohol.",
+      "Monitor yellowing of eyes and urine color.",
+      "Do liver function tests as advised."
+    ],
+    "advice": "This is AI-assisted guidance. Consult a qualified doctor for confirmation, prescriptions, severe symptoms, pregnancy, children, elderly patients, or long-lasting illness."
+  },
+  "Drug Reaction": {
+    "description": "A drug reaction is an unwanted response to a medicine, commonly causing rash, itching, swelling, fever, or breathing difficulty.",
+    "medicines": [
+      "Antihistamine",
+      "Calamine lotion",
+      "Emergency care if severe"
+    ],
+    "dosage": {
+      "Antihistamine": "Use as per label or doctor advice.",
+      "Calamine lotion": "Apply 2-3 times daily.",
+      "Emergency care if severe": "Seek immediate medical help."
+    },
+    "precautions": [
+      "Stop the suspected medicine only after medical advice unless symptoms are severe.",
+      "Record the drug name.",
+      "Seek urgent care for swelling, wheezing, or widespread rash."
+    ],
+    "advice": "This is AI-assisted guidance. Consult a qualified doctor for confirmation, prescriptions, severe symptoms, pregnancy, children, elderly patients, or long-lasting illness."
+  },
+  "Peptic ulcer diseae": {
+    "description": "Peptic ulcer disease is a sore in the stomach or upper intestine, often causing burning stomach pain, nausea, bloating, or black stools.",
+    "medicines": [
+      "Pantoprazole",
+      "Antacid",
+      "Doctor-prescribed antibiotics"
+    ],
+    "dosage": {
+      "Pantoprazole": "40 mg before breakfast if prescribed.",
+      "Antacid": "After meals as per label.",
+      "Doctor-prescribed antibiotics": "Complete the full course only if prescribed."
+    },
+    "precautions": [
+      "Avoid painkillers like ibuprofen unless advised.",
+      "Avoid alcohol and smoking.",
+      "Eat smaller meals.",
+      "Seek urgent care for vomiting blood or black stools."
+    ],
+    "advice": "This is AI-assisted guidance. Consult a qualified doctor for confirmation, prescriptions, severe symptoms, pregnancy, children, elderly patients, or long-lasting illness."
+  },
+  "AIDS": {
+    "description": "AIDS is an advanced stage of HIV infection that weakens immunity and increases risk of serious infections.",
+    "medicines": [
+      "Antiretroviral therapy",
+      "Treatment for infections",
+      "Nutritional supplements"
+    ],
+    "dosage": {
+      "Antiretroviral therapy": "Must be prescribed and monitored by an HIV specialist.",
+      "Treatment for infections": "As prescribed.",
+      "Nutritional supplements": "As advised."
+    },
+    "precautions": [
+      "Get confirmatory HIV testing.",
+      "Do not share needles.",
+      "Practice safe sex.",
+      "Continue regular specialist follow-up."
+    ],
+    "advice": "This is AI-assisted guidance. Consult a qualified doctor for confirmation, prescriptions, severe symptoms, pregnancy, children, elderly patients, or long-lasting illness."
+  },
+  "Diabetes ": {
+    "description": "Diabetes is a condition with high blood sugar due to problems with insulin production or action.",
+    "medicines": [
+      "Doctor-prescribed diabetes medicine",
+      "Oral rehydration fluids",
+      "Glucose monitoring"
+    ],
+    "dosage": {
+      "Doctor-prescribed diabetes medicine": "Take only as prescribed.",
+      "Oral rehydration fluids": "Use during dehydration.",
+      "Glucose monitoring": "Check as advised."
+    },
+    "precautions": [
+      "Monitor blood sugar.",
+      "Reduce sugary foods and refined carbs.",
+      "Exercise regularly.",
+      "Do not skip prescribed medicines."
+    ],
+    "advice": "This is AI-assisted guidance. Consult a qualified doctor for confirmation, prescriptions, severe symptoms, pregnancy, children, elderly patients, or long-lasting illness."
+  },
+  "Gastroenteritis": {
+    "description": "Gastroenteritis is stomach and intestine inflammation causing vomiting, diarrhea, stomach cramps, and dehydration.",
+    "medicines": [
+      "ORS",
+      "Zinc supplements",
+      "Probiotic"
+    ],
+    "dosage": {
+      "ORS": "Sip frequently after every loose stool or vomiting.",
+      "Zinc supplements": "Use as age-appropriate advice.",
+      "Probiotic": "As per label for 3-5 days."
+    },
+    "precautions": [
+      "Drink plenty of fluids.",
+      "Eat light food.",
+      "Avoid street food and dairy temporarily.",
+      "Seek care for blood in stool or dehydration."
+    ],
+    "advice": "This is AI-assisted guidance. Consult a qualified doctor for confirmation, prescriptions, severe symptoms, pregnancy, children, elderly patients, or long-lasting illness."
+  },
+  "Bronchial Asthma": {
+    "description": "Bronchial asthma causes airway narrowing and inflammation, leading to wheezing, cough, chest tightness, and breathlessness.",
+    "medicines": [
+      "Salbutamol inhaler",
+      "Controller inhaler",
+      "Steam inhalation"
+    ],
+    "dosage": {
+      "Salbutamol inhaler": "Use only as prescribed for acute symptoms.",
+      "Controller inhaler": "Use daily only if prescribed.",
+      "Steam inhalation": "Use warm steam carefully if it helps congestion."
+    },
+    "precautions": [
+      "Avoid smoke, dust, and triggers.",
+      "Keep prescribed inhaler available.",
+      "Seek emergency care for severe breathlessness.",
+      "Use inhaler technique correctly."
+    ],
+    "advice": "This is AI-assisted guidance. Consult a qualified doctor for confirmation, prescriptions, severe symptoms, pregnancy, children, elderly patients, or long-lasting illness."
+  },
+  "Hypertension ": {
+    "description": "Hypertension means blood pressure remains high, increasing risk to the heart, brain, kidneys, and eyes.",
+    "medicines": [
+      "Doctor-prescribed BP medicine",
+      "Low-salt diet",
+      "Home BP monitoring"
+    ],
+    "dosage": {
+      "Doctor-prescribed BP medicine": "Take exactly as prescribed.",
+      "Low-salt diet": "Limit added salt daily.",
+      "Home BP monitoring": "Record readings regularly."
+    },
+    "precautions": [
+      "Reduce salt.",
+      "Exercise regularly.",
+      "Avoid tobacco.",
+      "Seek urgent care for chest pain, severe headache, or weakness."
+    ],
+    "advice": "This is AI-assisted guidance. Consult a qualified doctor for confirmation, prescriptions, severe symptoms, pregnancy, children, elderly patients, or long-lasting illness."
+  },
+  "Migraine": {
+    "description": "Migraine is a recurrent headache disorder often causing one-sided throbbing pain, nausea, light sensitivity, and visual symptoms.",
+    "medicines": [
+      "Paracetamol",
+      "Ibuprofen",
+      "Doctor-prescribed migraine medicine"
+    ],
+    "dosage": {
+      "Paracetamol": "500 mg every 6 hours if needed, within safe daily limits.",
+      "Ibuprofen": "400 mg after food if suitable.",
+      "Doctor-prescribed migraine medicine": "Use as directed."
+    },
+    "precautions": [
+      "Rest in a dark quiet room.",
+      "Hydrate well.",
+      "Identify triggers.",
+      "Seek care for sudden worst headache or neurological symptoms."
+    ],
+    "advice": "This is AI-assisted guidance. Consult a qualified doctor for confirmation, prescriptions, severe symptoms, pregnancy, children, elderly patients, or long-lasting illness."
+  },
+  "Cervical spondylosis": {
+    "description": "Cervical spondylosis is age- or posture-related wear in the neck spine, causing neck pain, stiffness, or arm symptoms.",
+    "medicines": [
+      "Paracetamol",
+      "Topical pain-relief gel",
+      "Physiotherapy"
+    ],
+    "dosage": {
+      "Paracetamol": "500 mg every 6 hours if needed within safe limits.",
+      "Topical pain-relief gel": "Apply 2-3 times daily.",
+      "Physiotherapy": "As advised by therapist."
+    },
+    "precautions": [
+      "Maintain good posture.",
+      "Avoid prolonged phone bending.",
+      "Use ergonomic support.",
+      "Seek care for weakness or numbness."
+    ],
+    "advice": "This is AI-assisted guidance. Consult a qualified doctor for confirmation, prescriptions, severe symptoms, pregnancy, children, elderly patients, or long-lasting illness."
+  },
+  "Paralysis (brain hemorrhage)": {
+    "description": "Paralysis from brain hemorrhage is a medical emergency caused by bleeding in the brain, often with weakness, speech trouble, or altered consciousness.",
+    "medicines": [
+      "Emergency hospital care",
+      "Blood pressure control",
+      "Rehabilitation"
+    ],
+    "dosage": {
+      "Emergency hospital care": "Call emergency services immediately.",
+      "Blood pressure control": "Hospital-supervised.",
+      "Rehabilitation": "As prescribed after stabilization."
+    },
+    "precautions": [
+      "Do not delay emergency care.",
+      "Do not give food or drink if consciousness is altered.",
+      "Note symptom start time."
+    ],
+    "advice": "Emergency warning: seek immediate medical care."
+  },
+  "Jaundice": {
+    "description": "Jaundice causes yellow eyes or skin due to raised bilirubin and may be linked to liver, bile duct, or blood disorders.",
+    "medicines": [
+      "Doctor evaluation",
+      "Hydration",
+      "Vitamin support"
+    ],
+    "dosage": {
+      "Doctor evaluation": "Required for cause-based treatment.",
+      "Hydration": "Drink fluids unless restricted.",
+      "Vitamin support": "Only if advised."
+    },
+    "precautions": [
+      "Avoid alcohol.",
+      "Do liver tests.",
+      "Avoid self-medication.",
+      "Seek care for confusion, bleeding, or severe weakness."
+    ],
+    "advice": "This is AI-assisted guidance. Consult a qualified doctor for confirmation, prescriptions, severe symptoms, pregnancy, children, elderly patients, or long-lasting illness."
+  },
+  "Malaria": {
+    "description": "Malaria is a mosquito-borne infection causing fever with chills, sweating, headache, body pain, and weakness.",
+    "medicines": [
+      "Antimalarial medicine",
+      "Paracetamol",
+      "ORS"
+    ],
+    "dosage": {
+      "Antimalarial medicine": "Use only after testing and prescription.",
+      "Paracetamol": "500 mg every 6 hours for fever within safe limits.",
+      "ORS": "Sip regularly."
+    },
+    "precautions": [
+      "Get malaria test.",
+      "Use mosquito nets and repellents.",
+      "Remove stagnant water.",
+      "Complete prescribed course."
+    ],
+    "advice": "This is AI-assisted guidance. Consult a qualified doctor for confirmation, prescriptions, severe symptoms, pregnancy, children, elderly patients, or long-lasting illness."
+  },
+  "Chicken pox": {
+    "description": "Chicken pox is a contagious viral illness with fever and itchy fluid-filled blisters.",
+    "medicines": [
+      "Calamine lotion",
+      "Paracetamol",
+      "Antihistamine"
+    ],
+    "dosage": {
+      "Calamine lotion": "Apply 2-3 times daily.",
+      "Paracetamol": "Use for fever within safe limits.",
+      "Antihistamine": "At night if itching is severe."
+    },
+    "precautions": [
+      "Isolate until lesions crust.",
+      "Avoid scratching.",
+      "Keep nails short.",
+      "Avoid aspirin."
+    ],
+    "advice": "This is AI-assisted guidance. Consult a qualified doctor for confirmation, prescriptions, severe symptoms, pregnancy, children, elderly patients, or long-lasting illness."
+  },
+  "Dengue": {
+    "description": "Dengue is a mosquito-borne viral fever that can cause high fever, severe body pain, rash, and low platelets.",
+    "medicines": [
+      "Paracetamol",
+      "ORS",
+      "Doctor monitoring"
+    ],
+    "dosage": {
+      "Paracetamol": "Use only within safe limits for fever.",
+      "ORS": "Sip frequently.",
+      "Doctor monitoring": "Platelet and warning-sign monitoring as advised."
+    },
+    "precautions": [
+      "Avoid ibuprofen and aspirin.",
+      "Hydrate well.",
+      "Watch for bleeding, severe abdominal pain, or drowsiness.",
+      "Prevent mosquito bites."
+    ],
+    "advice": "This is AI-assisted guidance. Consult a qualified doctor for confirmation, prescriptions, severe symptoms, pregnancy, children, elderly patients, or long-lasting illness."
+  },
+  "Typhoid": {
+    "description": "Typhoid is a bacterial infection causing prolonged fever, weakness, stomach pain, and digestive symptoms.",
+    "medicines": [
+      "Doctor-prescribed antibiotics",
+      "Paracetamol",
+      "ORS"
+    ],
+    "dosage": {
+      "Doctor-prescribed antibiotics": "Complete full prescribed course.",
+      "Paracetamol": "Use within safe limits for fever.",
+      "ORS": "Sip as needed."
+    },
+    "precautions": [
+      "Get medical testing.",
+      "Drink safe water.",
+      "Eat hygienic food.",
+      "Complete antibiotics if prescribed."
+    ],
+    "advice": "This is AI-assisted guidance. Consult a qualified doctor for confirmation, prescriptions, severe symptoms, pregnancy, children, elderly patients, or long-lasting illness."
+  },
+  "hepatitis A": {
+    "description": "Hepatitis A is a viral liver infection spread through contaminated food or water, causing fever, nausea, abdominal pain, and jaundice.",
+    "medicines": [
+      "Rest",
+      "Hydration",
+      "Doctor monitoring"
+    ],
+    "dosage": {
+      "Rest": "Adequate rest until recovery.",
+      "Hydration": "Drink fluids regularly.",
+      "Doctor monitoring": "Liver tests as advised."
+    },
+    "precautions": [
+      "Avoid alcohol.",
+      "Eat safe food.",
+      "Wash hands often.",
+      "Avoid unnecessary medicines."
+    ],
+    "advice": "This is AI-assisted guidance. Consult a qualified doctor for confirmation, prescriptions, severe symptoms, pregnancy, children, elderly patients, or long-lasting illness."
+  },
+  "Hepatitis B": {
+    "description": "Hepatitis B is a viral liver infection spread through blood and body fluids and can become chronic.",
+    "medicines": [
+      "Specialist antiviral therapy",
+      "Liver monitoring",
+      "Vaccination for contacts"
+    ],
+    "dosage": {
+      "Specialist antiviral therapy": "Only under specialist care.",
+      "Liver monitoring": "As advised.",
+      "Vaccination for contacts": "As per vaccine schedule."
+    },
+    "precautions": [
+      "Avoid sharing razors/needles.",
+      "Practice safe sex.",
+      "Avoid alcohol.",
+      "Follow up with liver specialist."
+    ],
+    "advice": "This is AI-assisted guidance. Consult a qualified doctor for confirmation, prescriptions, severe symptoms, pregnancy, children, elderly patients, or long-lasting illness."
+  },
+  "Hepatitis C": {
+    "description": "Hepatitis C is a viral liver infection usually spread through blood exposure and may become chronic.",
+    "medicines": [
+      "Direct-acting antivirals",
+      "Liver monitoring",
+      "Vaccination for hepatitis A/B if advised"
+    ],
+    "dosage": {
+      "Direct-acting antivirals": "Specialist-prescribed course.",
+      "Liver monitoring": "As advised.",
+      "Vaccination for hepatitis A/B if advised": "As per schedule."
+    },
+    "precautions": [
+      "Avoid alcohol.",
+      "Do not share needles or razors.",
+      "Get specialist treatment.",
+      "Screen close risk contacts."
+    ],
+    "advice": "This is AI-assisted guidance. Consult a qualified doctor for confirmation, prescriptions, severe symptoms, pregnancy, children, elderly patients, or long-lasting illness."
+  },
+  "Hepatitis D": {
+    "description": "Hepatitis D is a serious liver infection that occurs only with hepatitis B infection.",
+    "medicines": [
+      "Specialist care",
+      "Antiviral treatment",
+      "Liver monitoring"
+    ],
+    "dosage": {
+      "Specialist care": "Required.",
+      "Antiviral treatment": "Only as prescribed.",
+      "Liver monitoring": "As advised."
+    },
+    "precautions": [
+      "Manage hepatitis B.",
+      "Avoid alcohol.",
+      "Prevent blood/body fluid exposure.",
+      "Follow specialist care."
+    ],
+    "advice": "This is AI-assisted guidance. Consult a qualified doctor for confirmation, prescriptions, severe symptoms, pregnancy, children, elderly patients, or long-lasting illness."
+  },
+  "Hepatitis E": {
+    "description": "Hepatitis E is a viral liver infection often spread by contaminated water and can be serious in pregnancy.",
+    "medicines": [
+      "Rest",
+      "Hydration",
+      "Doctor monitoring"
+    ],
+    "dosage": {
+      "Rest": "Adequate rest.",
+      "Hydration": "Drink safe fluids.",
+      "Doctor monitoring": "Liver tests as advised."
+    },
+    "precautions": [
+      "Drink safe water.",
+      "Avoid alcohol.",
+      "Pregnant patients need urgent medical care.",
+      "Maintain hand hygiene."
+    ],
+    "advice": "This is AI-assisted guidance. Consult a qualified doctor for confirmation, prescriptions, severe symptoms, pregnancy, children, elderly patients, or long-lasting illness."
+  },
+  "Alcoholic hepatitis": {
+    "description": "Alcoholic hepatitis is liver inflammation due to alcohol use, causing jaundice, weakness, abdominal swelling, or fever.",
+    "medicines": [
+      "Alcohol cessation support",
+      "Nutritional therapy",
+      "Specialist treatment"
+    ],
+    "dosage": {
+      "Alcohol cessation support": "Start immediately with medical support.",
+      "Nutritional therapy": "As advised.",
+      "Specialist treatment": "Depends on severity."
+    },
+    "precautions": [
+      "Stop alcohol.",
+      "Consult liver specialist.",
+      "Avoid self-medication.",
+      "Seek urgent care for confusion or bleeding."
+    ],
+    "advice": "This is AI-assisted guidance. Consult a qualified doctor for confirmation, prescriptions, severe symptoms, pregnancy, children, elderly patients, or long-lasting illness."
+  },
+  "Tuberculosis": {
+    "description": "Tuberculosis is a bacterial infection, commonly affecting lungs, causing cough, fever, night sweats, weight loss, and fatigue.",
+    "medicines": [
+      "Anti-TB treatment",
+      "Nutritional support",
+      "Fever medicine"
+    ],
+    "dosage": {
+      "Anti-TB treatment": "Must follow government/doctor-prescribed regimen.",
+      "Nutritional support": "Protein-rich diet as tolerated.",
+      "Fever medicine": "Paracetamol within safe limits."
+    },
+    "precautions": [
+      "Get sputum/chest testing.",
+      "Wear mask until advised.",
+      "Complete full treatment.",
+      "Screen close contacts."
+    ],
+    "advice": "This is AI-assisted guidance. Consult a qualified doctor for confirmation, prescriptions, severe symptoms, pregnancy, children, elderly patients, or long-lasting illness."
+  },
+  "Common Cold": {
+    "description": "Common cold is a viral upper respiratory infection causing runny nose, sneezing, cough, sore throat, and mild fever.",
+    "medicines": [
+      "Paracetamol",
+      "Saline nasal spray",
+      "Warm fluids"
+    ],
+    "dosage": {
+      "Paracetamol": "Use within safe limits for fever.",
+      "Saline nasal spray": "1-2 sprays as needed.",
+      "Warm fluids": "Sip frequently."
+    },
+    "precautions": [
+      "Rest.",
+      "Hydrate.",
+      "Wash hands.",
+      "Use mask if coughing."
+    ],
+    "advice": "This is AI-assisted guidance. Consult a qualified doctor for confirmation, prescriptions, severe symptoms, pregnancy, children, elderly patients, or long-lasting illness."
+  },
+  "Pneumonia": {
+    "description": "Pneumonia is lung infection causing cough, fever, chest pain, fast breathing, and breathlessness.",
+    "medicines": [
+      "Doctor-prescribed antibiotics",
+      "Paracetamol",
+      "Oxygen/supportive care if severe"
+    ],
+    "dosage": {
+      "Doctor-prescribed antibiotics": "Use only as prescribed.",
+      "Paracetamol": "For fever within safe limits.",
+      "Oxygen/supportive care if severe": "Hospital-supervised."
+    },
+    "precautions": [
+      "Seek medical evaluation.",
+      "Monitor breathing.",
+      "Hydrate.",
+      "Urgent care for breathlessness or low oxygen."
+    ],
+    "advice": "This is AI-assisted guidance. Consult a qualified doctor for confirmation, prescriptions, severe symptoms, pregnancy, children, elderly patients, or long-lasting illness."
+  },
+  "Dimorphic hemmorhoids(piles)": {
+    "description": "Piles are swollen anal veins that can cause pain, itching, bleeding, and discomfort while passing stool.",
+    "medicines": [
+      "Stool softener",
+      "Local anesthetic gel",
+      "Fiber supplement"
+    ],
+    "dosage": {
+      "Stool softener": "As per label or prescription.",
+      "Local anesthetic gel": "Apply locally as advised.",
+      "Fiber supplement": "Daily with water as per label."
+    },
+    "precautions": [
+      "Eat fiber-rich food.",
+      "Drink water.",
+      "Avoid straining.",
+      "Seek care for heavy bleeding."
+    ],
+    "advice": "This is AI-assisted guidance. Consult a qualified doctor for confirmation, prescriptions, severe symptoms, pregnancy, children, elderly patients, or long-lasting illness."
+  },
+  "Heart attack": {
+    "description": "Heart attack is a medical emergency caused by blocked blood flow to the heart, often with chest pain, sweating, nausea, or breathlessness.",
+    "medicines": [
+      "Emergency medical care",
+      "Aspirin if advised by emergency provider",
+      "Cardiac treatment"
+    ],
+    "dosage": {
+      "Emergency medical care": "Call emergency services immediately.",
+      "Aspirin if advised by emergency provider": "Only if not allergic and advised.",
+      "Cardiac treatment": "Hospital-supervised."
+    },
+    "precautions": [
+      "Do not drive yourself.",
+      "Call emergency services.",
+      "Rest while waiting.",
+      "Note symptom start time."
+    ],
+    "advice": "Emergency warning: seek immediate medical care."
+  },
+  "Varicose veins": {
+    "description": "Varicose veins are enlarged twisted veins, usually in legs, causing aching, swelling, heaviness, or visible veins.",
+    "medicines": [
+      "Compression stockings",
+      "Pain reliever",
+      "Vascular consultation"
+    ],
+    "dosage": {
+      "Compression stockings": "Wear during daytime if advised.",
+      "Pain reliever": "Paracetamol within safe limits if needed.",
+      "Vascular consultation": "For persistent or severe cases."
+    },
+    "precautions": [
+      "Elevate legs.",
+      "Avoid standing for long periods.",
+      "Walk regularly.",
+      "Seek care for ulcers or sudden swelling."
+    ],
+    "advice": "This is AI-assisted guidance. Consult a qualified doctor for confirmation, prescriptions, severe symptoms, pregnancy, children, elderly patients, or long-lasting illness."
+  },
+  "Hypothyroidism": {
+    "description": "Hypothyroidism is underactive thyroid hormone production, causing fatigue, weight gain, cold intolerance, constipation, or dry skin.",
+    "medicines": [
+      "Levothyroxine",
+      "Thyroid testing",
+      "Dietary support"
+    ],
+    "dosage": {
+      "Levothyroxine": "Dose must be prescribed based on TSH.",
+      "Thyroid testing": "Repeat as advised.",
+      "Dietary support": "Balanced diet with adequate iodine unless restricted."
+    },
+    "precautions": [
+      "Do TSH testing.",
+      "Take medicine on empty stomach if prescribed.",
+      "Do not change dose without doctor.",
+      "Follow up regularly."
+    ],
+    "advice": "This is AI-assisted guidance. Consult a qualified doctor for confirmation, prescriptions, severe symptoms, pregnancy, children, elderly patients, or long-lasting illness."
+  },
+  "Hyperthyroidism": {
+    "description": "Hyperthyroidism is excess thyroid hormone causing weight loss, fast heartbeat, sweating, anxiety, tremor, or heat intolerance.",
+    "medicines": [
+      "Anti-thyroid medicine",
+      "Beta blocker",
+      "Thyroid testing"
+    ],
+    "dosage": {
+      "Anti-thyroid medicine": "Specialist-prescribed only.",
+      "Beta blocker": "Use only if prescribed.",
+      "Thyroid testing": "As advised."
+    },
+    "precautions": [
+      "Consult endocrinologist.",
+      "Monitor pulse.",
+      "Avoid excess caffeine.",
+      "Seek urgent care for very fast heartbeat or fever."
+    ],
+    "advice": "This is AI-assisted guidance. Consult a qualified doctor for confirmation, prescriptions, severe symptoms, pregnancy, children, elderly patients, or long-lasting illness."
+  },
+  "Hypoglycemia": {
+    "description": "Hypoglycemia is low blood sugar causing sweating, tremors, hunger, confusion, weakness, or fainting.",
+    "medicines": [
+      "Fast sugar source",
+      "Glucose tablets",
+      "Medical evaluation"
+    ],
+    "dosage": {
+      "Fast sugar source": "Take 15 g fast carbohydrate if conscious, then recheck.",
+      "Glucose tablets": "Use as per label.",
+      "Medical evaluation": "Needed for repeated episodes."
+    },
+    "precautions": [
+      "Do not skip meals.",
+      "Carry sugar if diabetic.",
+      "Check glucose.",
+      "Seek emergency help if unconscious."
+    ],
+    "advice": "This is AI-assisted guidance. Consult a qualified doctor for confirmation, prescriptions, severe symptoms, pregnancy, children, elderly patients, or long-lasting illness."
+  },
+  "Osteoarthristis": {
+    "description": "Osteoarthritis is joint wear-and-tear causing pain, stiffness, swelling, and reduced movement.",
+    "medicines": [
+      "Paracetamol",
+      "Topical NSAID gel",
+      "Physiotherapy"
+    ],
+    "dosage": {
+      "Paracetamol": "Use within safe daily limit.",
+      "Topical NSAID gel": "Apply locally 2-3 times daily.",
+      "Physiotherapy": "Regular exercises as advised."
+    },
+    "precautions": [
+      "Maintain healthy weight.",
+      "Do low-impact exercise.",
+      "Avoid overloading joints.",
+      "Use support if needed."
+    ],
+    "advice": "This is AI-assisted guidance. Consult a qualified doctor for confirmation, prescriptions, severe symptoms, pregnancy, children, elderly patients, or long-lasting illness."
+  },
+  "Arthritis": {
+    "description": "Arthritis is joint inflammation causing pain, swelling, stiffness, and limited movement.",
+    "medicines": [
+      "Paracetamol",
+      "Anti-inflammatory medicine",
+      "Physiotherapy"
+    ],
+    "dosage": {
+      "Paracetamol": "Use within safe limits.",
+      "Anti-inflammatory medicine": "Only if suitable and advised.",
+      "Physiotherapy": "As advised."
+    },
+    "precautions": [
+      "Rest during flares.",
+      "Do gentle movement.",
+      "Seek evaluation for persistent swelling.",
+      "Avoid self-medicating long term."
+    ],
+    "advice": "This is AI-assisted guidance. Consult a qualified doctor for confirmation, prescriptions, severe symptoms, pregnancy, children, elderly patients, or long-lasting illness."
+  },
+  "(vertigo) Paroymsal  Positional Vertigo": {
+    "description": "Benign positional vertigo causes brief spinning sensations triggered by head position changes.",
+    "medicines": [
+      "Vestibular exercises",
+      "Meclizine",
+      "Hydration"
+    ],
+    "dosage": {
+      "Vestibular exercises": "Do only as instructed.",
+      "Meclizine": "Use only if prescribed.",
+      "Hydration": "Drink fluids regularly."
+    },
+    "precautions": [
+      "Avoid sudden head movements.",
+      "Sit or lie down during dizziness.",
+      "Do not drive while dizzy.",
+      "Seek care for weakness or speech trouble."
+    ],
+    "advice": "This is AI-assisted guidance. Consult a qualified doctor for confirmation, prescriptions, severe symptoms, pregnancy, children, elderly patients, or long-lasting illness."
+  },
+  "Acne": {
+    "description": "Acne is blockage and inflammation of skin oil glands causing pimples, blackheads, or cysts.",
+    "medicines": [
+      "Benzoyl peroxide gel",
+      "Salicylic acid wash",
+      "Dermatology medicine"
+    ],
+    "dosage": {
+      "Benzoyl peroxide gel": "Apply thinly once daily initially.",
+      "Salicylic acid wash": "Use once daily if tolerated.",
+      "Dermatology medicine": "As prescribed."
+    },
+    "precautions": [
+      "Do not squeeze pimples.",
+      "Use non-comedogenic products.",
+      "Wash face gently.",
+      "Use sunscreen."
+    ],
+    "advice": "This is AI-assisted guidance. Consult a qualified doctor for confirmation, prescriptions, severe symptoms, pregnancy, children, elderly patients, or long-lasting illness."
+  },
+  "Urinary tract infection": {
+    "description": "UTI is infection in the urinary system causing burning urination, frequent urination, lower abdominal pain, or fever.",
+    "medicines": [
+      "Doctor-prescribed antibiotics",
+      "ORS/water",
+      "Urine alkalizer if advised"
+    ],
+    "dosage": {
+      "Doctor-prescribed antibiotics": "Take only after prescription and complete course.",
+      "ORS/water": "Hydrate regularly.",
+      "Urine alkalizer if advised": "Use as directed."
+    },
+    "precautions": [
+      "Drink water.",
+      "Do urine test.",
+      "Do not delay care if fever/back pain.",
+      "Maintain hygiene."
+    ],
+    "advice": "This is AI-assisted guidance. Consult a qualified doctor for confirmation, prescriptions, severe symptoms, pregnancy, children, elderly patients, or long-lasting illness."
+  },
+  "Psoriasis": {
+    "description": "Psoriasis is a chronic inflammatory skin condition causing scaly, itchy, red plaques.",
+    "medicines": [
+      "Moisturizer",
+      "Topical steroid",
+      "Dermatology therapy"
+    ],
+    "dosage": {
+      "Moisturizer": "Apply multiple times daily.",
+      "Topical steroid": "Use only as prescribed.",
+      "Dermatology therapy": "As advised."
+    },
+    "precautions": [
+      "Avoid scratching.",
+      "Moisturize skin.",
+      "Avoid triggers like stress or harsh soaps.",
+      "Follow dermatologist care."
+    ],
+    "advice": "This is AI-assisted guidance. Consult a qualified doctor for confirmation, prescriptions, severe symptoms, pregnancy, children, elderly patients, or long-lasting illness."
+  },
+  "Impetigo": {
+    "description": "Impetigo is a contagious bacterial skin infection causing red sores and honey-colored crusts, often around nose or mouth.",
+    "medicines": [
+      "Topical antibiotic",
+      "Oral antibiotic",
+      "Antiseptic cleansing"
+    ],
+    "dosage": {
+      "Topical antibiotic": "Apply as prescribed.",
+      "Oral antibiotic": "Complete full course if prescribed.",
+      "Antiseptic cleansing": "Clean gently once or twice daily."
+    },
+    "precautions": [
+      "Avoid touching sores.",
+      "Do not share towels.",
+      "Keep nails short.",
+      "Cover lesions if possible."
+    ],
+    "advice": "This is AI-assisted guidance. Consult a qualified doctor for confirmation, prescriptions, severe symptoms, pregnancy, children, elderly patients, or long-lasting illness."
+  }
+}

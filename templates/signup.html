@@ -1,0 +1,144 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <title>Sign Up - MediExpert+</title>
+  <link rel="icon" type="image/png" href="{{ url_for('static', filename='logo.png') }}">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <style>
+    * {
+      box-sizing: border-box;
+      margin: 0;
+      padding: 0;
+    }
+    body {
+      font-family: 'Segoe UI', sans-serif;
+      min-height: 100vh;
+      background: url("{{ url_for('static', filename='background.jpg') }}") no-repeat center center fixed;
+      background-size: cover;
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      position: relative;
+      padding: 18px;
+    }
+    .overlay {
+      position: absolute;
+      inset: 0;
+      background-color: rgba(0, 0, 0, 0.5);
+      z-index: 1;
+    }
+    .signup-container {
+      z-index: 2;
+      background: rgba(145, 224, 239, 0.95);
+      padding: 35px 25px;
+      border-radius: 12px;
+      width: 100%;
+      max-width: 370px;
+      box-shadow: 0 8px 20px rgba(0, 0, 0, 0.3);
+      text-align: center;
+      animation: slideIn 0.8s ease;
+      transition: transform 0.3s ease, box-shadow 0.3s ease;
+    }
+    .signup-container:hover {
+      transform: scale(1.02);
+      box-shadow: 0 12px 28px rgba(0, 119, 182, 0.5);
+    }
+    h2 {
+      color: #023e8a;
+      margin-bottom: 20px;
+    }
+    input, select {
+      width: 100%;
+      margin: 10px 0;
+      padding: 12px;
+      font-size: 16px;
+      border-radius: 6px;
+      border: 1px solid #ccc;
+      transition: border-color 0.2s ease, transform 0.2s ease;
+    }
+    input:focus, select:focus {
+      border-color: #0096c7;
+      outline: none;
+      transform: scale(1.01);
+    }
+    button {
+      width: 100%;
+      padding: 12px;
+      background-color: #0077b6;
+      color: white;
+      font-size: 16px;
+      border: none;
+      border-radius: 6px;
+      cursor: pointer;
+      transition: background-color 0.3s ease, transform 0.2s ease;
+      margin-top: 6px;
+    }
+    button:hover {
+      background-color: #023e8a;
+      transform: scale(1.01);
+    }
+    .login-link {
+      margin-top: 15px;
+      font-size: 14px;
+    }
+    .login-link a {
+      color: #03045e;
+      text-decoration: none;
+      font-weight: 600;
+    }
+    .alert {
+      margin: 10px 0 14px;
+      padding: 10px;
+      border-radius: 6px;
+      background: #fde8e8;
+      color: #842029;
+      font-size: 14px;
+    }
+    @keyframes slideIn {
+      from { transform: translateY(40px); opacity: 0; }
+      to { transform: translateY(0); opacity: 1; }
+    }
+    @media (max-width: 480px) {
+      .signup-container {
+        padding: 25px 20px;
+        border-radius: 10px;
+        max-width: 90%;
+      }
+    }
+  </style>
+</head>
+<body>
+  <div class="overlay"></div>
+  <div class="signup-container">
+    <h2>Create an Account</h2>
+    {% with messages = get_flashed_messages(with_categories=true) %}
+      {% if messages %}
+        {% for category, message in messages %}
+          {% if category == 'danger' %}
+            <div class="alert">{{ message }}</div>
+            <script>alert({{ message|tojson }});</script>
+          {% endif %}
+        {% endfor %}
+      {% endif %}
+    {% endwith %}
+    <form action="{{ url_for('signup') }}" method="POST">
+      <input type="text" name="name" placeholder="Full Name" required />
+      <input type="email" name="email" placeholder="Email" required />
+      <input type="number" name="age" placeholder="Age" min="1" max="120" required />
+      <select name="gender" required>
+        <option value="" selected disabled>Select Gender</option>
+        <option value="Male">Male</option>
+        <option value="Female">Female</option>
+        <option value="Other">Other</option>
+      </select>
+      <input type="password" name="password" placeholder="Password" required />
+      <input type="password" name="confirm_password" placeholder="Confirm Password" required />
+      <button type="submit">Sign Up</button>
+    </form>
+    <div class="login-link">
+      Already have an account? <a href="{{ url_for('login') }}">Login</a>
+    </div>
+  </div>
+</body>
+</html>

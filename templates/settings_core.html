@@ -1,0 +1,123 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <title>Settings</title>
+  <style>
+    body {
+      font-family: Arial, sans-serif;
+      background: #eaf4ff;
+      padding: 20px;
+    }
+
+    .settings-box {
+      background: white;
+      padding: 20px;
+      border-radius: 10px;
+      width: 90%;
+      max-width: 600px;
+      margin: auto;
+      box-shadow: 0 0 10px rgba(0,0,0,0.1);
+    }
+
+    h2 {
+      color: #0b5394;
+    }
+
+    button {
+      display: block;
+      width: 100%;
+      margin: 10px 0;
+      padding: 10px;
+      font-size: 16px;
+      background-color: #007acc;
+      color: white;
+      border: none;
+      border-radius: 5px;
+      cursor: pointer;
+    }
+
+    button:hover {
+      background-color: #005a99;
+    }
+
+    .section {
+      display: none;
+      margin-top: 10px;
+      padding: 15px;
+      background: #f1f1f1;
+      border-radius: 8px;
+    }
+
+    input {
+      padding: 8px;
+      width: 95%;
+      margin: 5px 0;
+      border-radius: 4px;
+      border: 1px solid #ccc;
+    }
+
+    .success {
+      color: green;
+    }
+  </style>
+</head>
+<body>
+
+  <div class="settings-box">
+    <h2>Settings Panel</h2>
+
+    <!-- Buttons -->
+    <button onclick="toggleSection('editProfile')">✏️ Edit Profile</button>
+    <button onclick="confirmRestart()">🔁 Restart Plan</button>
+    <button onclick="toggleSection('history')">📁 View History</button>
+    <button onclick="confirmDelete()">🗑️ Delete All Data</button>
+
+    <!-- Sections -->
+    <div id="editProfile" class="section">
+      <h3>Edit Profile</h3>
+      <input type="text" placeholder="Enter your name"><br>
+      <input type="email" placeholder="Enter your email"><br>
+      <button style="background:#4CAF50;" onclick="alert('Profile saved')">Save Changes</button>
+    </div>
+
+    <div id="history" class="section">
+      <h3>Activity History</h3>
+      <ul>
+        <li>🩺 Diagnosis: 17 June</li>
+        <li>💧 Water Reminder set: 15 June</li>
+        <li>💬 Chatbot Session: 14 June</li>
+      </ul>
+    </div>
+
+    <div id="resultMsg" class="section success"></div>
+  </div>
+
+  <script>
+    function toggleSection(id) {
+      const sections = document.querySelectorAll('.section');
+      sections.forEach(sec => {
+        if (sec.id === id) {
+          sec.style.display = sec.style.display === 'block' ? 'none' : 'block';
+        } else {
+          sec.style.display = 'none';
+        }
+      });
+    }
+
+    function confirmRestart() {
+      if (confirm("Are you sure you want to restart your plan?")) {
+        document.getElementById('resultMsg').style.display = 'block';
+        document.getElementById('resultMsg').innerText = '✔️ Health plan has been restarted.';
+      }
+    }
+
+    function confirmDelete() {
+      if (confirm("This will delete all your data. Continue?")) {
+        document.getElementById('resultMsg').style.display = 'block';
+        document.getElementById('resultMsg').innerText = '🗑️ All user data deleted.';
+      }
+    }
+  </script>
+
+</body>
+</html>
