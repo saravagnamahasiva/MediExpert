@@ -112,6 +112,31 @@ Expected output:
 MediExpert+ verification passed: pages, APIs, DB storage, diagnosis JSON, and reports are working.
 ```
 
+## Deploy On Render
+
+1. Push this folder to GitHub.
+2. Go to Render and create a new Web Service.
+3. Connect your GitHub repository.
+4. Use these settings:
+
+```text
+Environment: Python
+Build Command: pip install -r requirements.txt
+Start Command: gunicorn app:app
+```
+
+5. Add an environment variable:
+
+```text
+MEDIEXPERT_SECRET_KEY = any-long-random-secret
+```
+
+6. Deploy and open the Render URL.
+
+The included `Procfile`, `runtime.txt`, and `render.yaml` are provided for deployment platforms that detect them automatically.
+
+Important: SQLite works for demos, but many free deployment platforms reset local files during restart/redeploy. For public real use, connect a hosted database such as PostgreSQL.
+
 ## Important Safety Note
 
 The diagnosis feature is an AI-assisted screening aid based on a trained model and stored health guidance. It is not a replacement for professional medical diagnosis, emergency care, or prescription advice.
